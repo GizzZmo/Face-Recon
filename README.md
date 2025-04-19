@@ -1,5 +1,3 @@
-# Face-Recon
-Face Recon for your loT
 La oss ta dette **avanserte sikkerhetssystemet** til **et helt nytt nivå**! 🚀  
 
 ## **Forbedringer og utvidelser**  
