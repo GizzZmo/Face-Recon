@@ -1,1 +1,9 @@
-
+body {
+    font-family: Arial, sans-serif;
+}
+button {
+    background: #4CAF50;
+    color: white;
+    padding: 10px;
+    cursor: pointer;
+}
