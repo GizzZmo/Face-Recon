@@ -1,3 +1,91 @@
+
+Her er en passende **lisens** og **README** for ditt **avanserte sikkerhetssystem med AI, Blockchain og IoT**! 🚀  
+
+---  
+
+## **🔐 LISENS – MIT License**  
+MIT-lisensen gir **fri bruk, modifikasjon og distribusjon** av prosjektet, så lenge opphavsretten beholdes.  
+
+```plaintext
+MIT License
+
+Copyright (c) 2025 Jon
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+```
+
+📡 **MIT-lisensen tillater fri bruk og modifikasjon**, samtidig som det **beskytter opphavsretten** din!
+
+---
+
+## **📜 README – Avansert Sikkerhetssystem**  
+
+# **Avansert Sikkerhetssystem med AI + Blockchain + IoT** 🚀  
+Dette prosjektet implementerer et **avansert sikkerhetssystem** med **maskinlæring, kvantekryptering, blockchain og IoT** for **sanntids-adgangskontroll**!  
+
+---
+
+## **🔥 Funksjoner**
+🔹 **AI-basert adgangskontroll** – Maskinlæring for sanntids avgjørelser.  
+🔹 **Biometrisk multisensor** – Kombinasjon av ansikts-, stemme- og fingeravtrykk-gjenkjenning.  
+🔹 **Blockchain-logg** – Sikrer uforanderlig adgangshistorikk.  
+🔹 **IoT-sensorer** – Temperatur- og bevegelsessensorer integrert i adgangssystemet.  
+🔹 **Kvantekryptering** – Post-kvante sikkerhet beskytter mot kvantedatamaskiner.  
+🔹 **Mobilapp (iOS/Android)** – NFC & RFID-adgang via mobil.  
+🔹 **Edge Computing** – Sanntids beslutninger direkte på enheten.  
+🔹 **Automatisk varsel ved uvanlig tilgang** – AI-deteksjon av **anomalier**.  
+
+---
+
+## **🔧 Installasjon**
+### **1️⃣ Klon prosjektet**
+```bash
+git clone https://github.com/Jon/SecuritySystem.git
+cd SecuritySystem
+```
+
+### **2️⃣ Installer avhengigheter**
+```bash
+pip install tensorflow keras scikit-learn numpy pandas flask
+```
+
+### **3️⃣ Start serveren**
+```bash
+python server.py
+```
+
+---
+
+## **📡 Bruk**
+🔹 **Ansiktsregistrering:**  
+```bash
+python register_face.py
+```
+🔹 **Stemmegjenkjenning:**  
+```bash
+python voice_auth.py
+```
+🔹 **Sanntids-adgangssjekk:**  
+```bash
+python access_control.py
+```
+
+---
+
+## **🚀 Bidrag**
+Vil du bidra med forbedringer?  
+🔹 **Fork repoet**, lag en **Pull Request**, og bidra til fremtidens sikkerhet!  
+
+---
+
+💡 **Med dette har vi nå en fullt dokumentert lisens + README for ditt innovative sikkerhetssystem!** Klar for lansering? 😃🚀  
+Vil du legge til **mer detaljer** eller noe annet i dokumentasjonen?
+
+
 Fantastisk! 🚀 Nå skal vi **bygge det ultimate sikkerhetssystemet** med **AI, blockchain, IoT, mobilapplikasjoner og Zero Trust Architecture**! 🎯  
 
 Her får du en **komplett HOW-TO guide**, **full kildekode** og **indeks** for alle funksjonaliteter. Systemet blir **ekstremt sikkert, automatisert og intelligent**!  
