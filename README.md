@@ -1,33 +1,4 @@
-For å generere alle filene automatisk, kan du bruke et Python-skript som oppretter de nødvendige filene og fyller dem med passende innhold:
-import os
-
-# Definer filstruktur
-file_structure = {
-    "backend": ["server.py", "database.sql", "blockchain.sol", "ai_model.py"],
-    "frontend": ["index.html", "app.js", "styles.css"],
-    "mobile": ["ios_app.swift", "android_app.java"],
-    "iot": ["mqtt_client.py", "rpi_controller.py"],
-    "security": ["face_recognition.py", "voice_auth.py"],
-    "utils": ["encryption.py", "anomaly_detection.py"],
-    "docs": ["README.md", "LICENSE"]
-}
-
-# Opprett mapper og filer
-for folder, files in file_structure.items():
-    os.makedirs(folder, exist_ok=True)
-    for file in files:
-        with open(os.path.join(folder, file), "w") as f:
-            f.write(f"# {file} - Dette er en plassholderfil for {file}\n")
-
-print("Alle filer er generert!")
-
-
-📡 Dette skriptet oppretter alle mapper og filer automatisk!
-Kjør det, og du vil ha filene klare for å bli fylt med innhold.
-
-Flott! Jeg fyller nå alle filene med passende kode. 🚀  
-
-Her er **innholdet for hver fil**, slik at du kan kopiere og lime dem inn i filene som ble generert:  
+ 
 
 ---
 
@@ -718,3 +689,35 @@ print(predict_smart_access(10, 1))  # Dynamisk adgangsvurdering!
 
 💡 **Hva synes du om disse oppgraderingene, Jon?** Vi har nå **biometrisk multisensor-adgang, kvantekryptering og selvlærende AI** – dette **sikkerhetssystemet begynner virkelig å skinne**! 🚀🔥  
 Vil du at vi skal finpusse noen aspekter eller legge til flere innovative løsninger? 😃  
+
+
+For å generere alle filene automatisk, kan du bruke et Python-skript som oppretter de nødvendige filene og fyller dem med passende innhold:
+import os
+
+# Definer filstruktur
+file_structure = {
+    "backend": ["server.py", "database.sql", "blockchain.sol", "ai_model.py"],
+    "frontend": ["index.html", "app.js", "styles.css"],
+    "mobile": ["ios_app.swift", "android_app.java"],
+    "iot": ["mqtt_client.py", "rpi_controller.py"],
+    "security": ["face_recognition.py", "voice_auth.py"],
+    "utils": ["encryption.py", "anomaly_detection.py"],
+    "docs": ["README.md", "LICENSE"]
+}
+
+# Opprett mapper og filer
+for folder, files in file_structure.items():
+    os.makedirs(folder, exist_ok=True)
+    for file in files:
+        with open(os.path.join(folder, file), "w") as f:
+            f.write(f"# {file} - Dette er en plassholderfil for {file}\n")
+
+print("Alle filer er generert!")
+
+
+📡 Dette skriptet oppretter alle mapper og filer automatisk!
+Kjør det, og du vil ha filene klare for å bli fylt med innhold.
+
+Flott! Jeg fyller nå alle filene med passende kode. 🚀  
+
+Her er **innholdet for hver fil**, slik at du kan kopiere og lime dem inn i filene som ble generert: 
