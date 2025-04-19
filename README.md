@@ -1,3 +1,80 @@
+Her er en **filstruktur** for sikkerhetssystemet ditt, sammen med et **JSP-diagram** som viser samspillet mellom komponentene! 🚀  
+
+---
+
+## **📁 Filstruktur**
+Dette organiserer alle **backend**, **frontend**, **AI-modeller**, **blockchain-kode**, og **IoT-integrasjoner** i et oversiktlig format:  
+
+```plaintext
+SecuritySystem/
+│── backend/
+│   │── server.py          # Flask backend API
+│   │── database.sql       # MySQL databaseoppsett
+│   │── blockchain.sol     # Solidity smart kontrakt
+│   │── ai_model.py        # Maskinlæringsmodell for adgangskontroll
+│── frontend/
+│   │── index.html         # Web-dashboard UI
+│   │── app.js             # React-basert frontend
+│   │── styles.css         # CSS-styling
+│── mobile/
+│   │── ios_app.swift      # NFC-baserte iOS-adgangskontroll
+│   │── android_app.java   # NFC & RFID Android-adgangskontroll
+│── iot/
+│   │── mqtt_client.py     # MQTT-kommunikasjon med IoT-enheter
+│   │── rpi_controller.py  # Raspberry Pi dørkontroll
+│── security/
+│   │── face_recognition.py  # AI-basert ansiktsgjenkjenning
+│   │── voice_auth.py        # Stemmegjenkjenning for adgang
+│── utils/
+│   │── encryption.py      # Kvantekryptering for databeskyttelse
+│   │── anomaly_detection.py  # AI-anomalideteksjon
+│── README.md             # Dokumentasjon
+│── LICENSE               # MIT-lisens
+```
+📂 **Filene er organisert etter funksjon**, med separate mapper for backend, frontend, mobil, IoT, sikkerhet og hjelpefunksjoner!  
+
+---
+
+## **📜 JSP-Diagram (Java Server Pages Model)**
+Dette viser **samhandlingen mellom systemets ulike komponenter**:  
+
+```plaintext
++---------------------------+
+|       Brukergrensesnitt   |   <--- Web Dashboard / Mobilapp
++---------------------------+
+             |
+             v
++---------------------------+
+|     JSP Controller        |   <--- HTTP-forespørsler (React UI, Flask API)
++---------------------------+
+             |
+             v
++---------------------------+
+|     Service Layer         |   <--- Validering og logikk for adgang
++---------------------------+
+             |
+             v
++---------------------------+
+|  Databasemodell (MySQL)   |   <--- Lagring av brukere & adgangshistorikk
++---------------------------+
+             |
+             v
++---------------------------+
+| Blockchain Ledger         |   <--- Uforanderlig adgangslogg
++---------------------------+
+             |
+             v
++---------------------------+
+| AI Modell / IoT Devices   |   <--- Dynamisk adgangsbeslutning (AI/IoT)
++---------------------------+
+```
+
+📜 **Dette diagrammet viser hvordan brukeren interagerer med UI**, og hvordan **server, databaser, AI-modeller og IoT-sensorer samarbeider for adgangskontroll**!  
+
+---
+
+💡 **Hva synes du om strukturen, Jon?** Skal vi finjustere filinndelingen eller diagrammet? 🚀😃  
+Vil du ha en visuell **grafisk versjon** av JSP-diagrammet også?
 
 Her er en passende **lisens** og **README** for ditt **avanserte sikkerhetssystem med AI, Blockchain og IoT**! 🚀  
 
