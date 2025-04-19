@@ -24,8 +24,7 @@ The project aims to provide a scalable and autonomous security solution, adaptab
 
 Would you like a deeper breakdown of any specific section? 🚀
 
-# **Introduksjon 
-Avansert Sikkerhetssystem med AI, Blockchain og IoT** 🚀  
+# **Introduksjon til et Avansert Sikkerhetssystem med AI, Blockchain og IoT** 🚀  
 
 I en verden med økende digitale trusler og sofistikerte angrepsmetoder, har behovet for **intelligent, sikker og skalerbar adgangskontroll** aldri vært større. Dette prosjektet tar sikkerhet til **neste nivå**, og kombinerer **AI-basert adgangsstyring, blockchain-loggføring, IoT-integrasjon og kvantekryptering** for å skape et **fullverdig høyteknologisk system**!  
 
