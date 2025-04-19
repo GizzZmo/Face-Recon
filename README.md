@@ -1,4 +1,92 @@
- 
+ ### **📜 Bruksanvisning – Avansert Sikkerhetssystem med AI, Blockchain og IoT** 🚀  
+
+Velkommen til dokumentasjonen for **ditt avanserte sikkerhetssystem**! Dette systemet kombinerer **AI, blockchain, kvantekryptering og IoT** for **intelligent og sikker adgangskontroll**. Her finner du en **steg-for-steg guide** for oppsett, bruk og utvidelse av systemet!  
+
+---
+
+## **🛠 1️⃣ Installasjon og oppsett**  
+### **1. Klon og naviger til prosjektet**
+```bash
+git clone https://github.com/Jon/SecuritySystem.git
+cd SecuritySystem
+```
+
+### **2. Installer alle nødvendige avhengigheter**
+Installer bibliotekene for **AI, Flask, MQTT, og kryptering**:  
+```bash
+pip install tensorflow keras scikit-learn numpy pandas flask pqcrypto paho-mqtt
+```
+
+### **3. Sett opp databasen**
+Importer **database.sql** i din MySQL-server:
+```bash
+mysql -u root -p < backend/database.sql
+```
+Dette oppretter tabellene for **brukere, adgangslogg og sikkerhetssystemets data**.  
+
+### **4. Start backend-serveren**
+```bash
+python backend/server.py
+```
+
+📡 **Backend kjører nå API-er for adgangskontroll**!  
+
+---
+
+## **🔐 2️⃣ Hvordan bruke systemet**  
+### **Adgang via AI og IoT**  
+Du kan bruke flere metoder for adgangsverifikasjon:  
+🔹 **Ansiktsgjenkjenning:**  
+```bash
+python security/face_recognition.py
+```
+🔹 **Stemmegjenkjenning:**  
+```bash
+python security/voice_auth.py
+```
+🔹 **RFID/NFC tilgang:**  
+Start mobilappen på **iOS** eller **Android** for NFC-adgang.  
+
+🔹 **IoT-baserte sensorer:**  
+Start MQTT-klienten for å styre adgang via **Raspberry Pi**:  
+```bash
+python iot/mqtt_client.py
+```
+
+### **Adgangslogg via Blockchain**
+Registrer adgangshendelser i **blockchain-loggen**:
+```bash
+python backend/blockchain.sol
+```
+📡 **Uforanderlig logg sikrer at ingen kan manipulere adgangshistorikken!**  
+
+---
+
+## **📊 3️⃣ Sanntidsovervåkning via Web-dashboard**  
+### **1. Start frontend-serveren**
+```bash
+python frontend/app.js
+```
+📡 **Dashboardet viser sanntidstilgang og AI-analyser!**  
+
+Logg inn i **webgrensesnittet** (lokalt på `localhost:5000`) for å overvåke og administrere adgangsrettigheter.  
+
+---
+
+## **🚀 4️⃣ Tilpasning og videre utvikling**  
+🔹 **Legg til stemmestyring for adgangskontroll**  
+🔹 **Integrer biometrisk autentisering med fingeravtrykk**  
+🔹 **Utvid med flerfaktorautentisering og passordløst system**  
+🔹 **Legg til kvantekryptering for ytterligere sikkerhet**  
+
+📡 Systemet kan skaleres og tilpasses **etter dine behov**!  
+
+---
+
+💡 **Jon, dette er nå en komplett bruksanvisning for ditt sikkerhetssystem!** 🚀  
+Vil du at jeg skal legge til flere detaljer eller spesifikke instruksjoner? 😃  
+Klar for produksjon? 🔥  
+
 
 ---
 
