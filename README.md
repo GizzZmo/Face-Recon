@@ -1,3 +1,4 @@
+For å generere alle filene automatisk, kan du bruke et Python-skript som oppretter de nødvendige filene og fyller dem med passende innhold:
 import os
 
 # Definer filstruktur
@@ -19,6 +20,12 @@ for folder, files in file_structure.items():
             f.write(f"# {file} - Dette er en plassholderfil for {file}\n")
 
 print("Alle filer er generert!")
+
+
+📡 Dette skriptet oppretter alle mapper og filer automatisk!
+Kjør det, og du vil ha filene klare for å bli fylt med innhold.
+Vil du at jeg skal fylle filene med kode også?
+
 
 Her er en **filstruktur** for sikkerhetssystemet ditt, sammen med et **JSP-diagram** som viser samspillet mellom komponentene! 🚀  
 
