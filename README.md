@@ -19,10 +19,7 @@ A high-tech security system combining AI, Blockchain, IoT, and quantum-safe encr
 ```bash
 pip install -r requirements.txt
 
-
-
-
-This GitHub repository, **Face-Recon**, is an advanced security system that integrates AI, Blockchain, and IoT for high-tech access control. Here are the main points:
+## This GitHub repository, **Face-Recon**, is an advanced security system that integrates AI, Blockchain, and IoT for high-tech access control. Here are the main points:
 
 - **Purpose**: Designed to enhance security by combining AI-based access management, immutable blockchain logging, IoT sensor integration, and quantum encryption.
 - **Features**:
