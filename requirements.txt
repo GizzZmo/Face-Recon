@@ -5,6 +5,7 @@
 opencv-python
 face_recognition
 numpy
+Flask
 imutils
 ```
 
