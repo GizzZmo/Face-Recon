@@ -28,4 +28,19 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Deploy backend til server
-        run: ssh user@server "cd /security-system && git pull && systemctl restart security-system"
+        run: |
+          ssh user@server << 'EOF'
+          set -e
+          echo "[INFO] Starting deployment to security system server"
+          
+          echo "[INFO] Changing to security-system directory"
+          cd /security-system || { echo "[ERROR] Failed to change to /security-system directory"; exit 1; }
+          
+          echo "[INFO] Pulling latest changes from git repository"
+          git pull || { echo "[ERROR] Failed to pull latest changes from git"; exit 1; }
+          
+          echo "[INFO] Restarting security-system service"
+          systemctl restart security-system || { echo "[ERROR] Failed to restart security-system service"; exit 1; }
+          
+          echo "[SUCCESS] Deployment completed successfully"
+          EOF
