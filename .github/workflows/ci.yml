@@ -1,13 +1,40 @@
-name: CI/CD Security System
+# DEPRECATED: This workflow has been replaced by ci-comprehensive.yml
+# This file is kept for reference but should not be used for new development
+
+name: CI/CD Security System (DEPRECATED)
 
 on:
-  push:
-    branches:
-      - main
+  # Disabled to prevent accidental runs
+  workflow_dispatch:
+    inputs:
+      force_run:
+        description: 'Force run deprecated workflow (not recommended)'
+        required: true
+        default: 'false'
+        type: choice
+        options:
+        - 'false'
+        - 'true'
 
 jobs:
+  deprecation-notice:
+    runs-on: ubuntu-latest
+    if: github.event.inputs.force_run == 'true'
+    steps:
+      - name: Deprecation Notice
+        run: |
+          echo "⚠️ WARNING: This workflow is DEPRECATED"
+          echo "Please use the new comprehensive CI workflow: ci-comprehensive.yml"
+          echo "This workflow provides:"
+          echo "- Matrix testing across multiple Python versions"
+          echo "- Enhanced caching for faster builds"
+          echo "- Comprehensive linting and security checks"
+          echo "- Better deployment with detailed logging"
+          echo "- Improved error handling and debugging"
+
   test:
     runs-on: ubuntu-latest
+    if: github.event.inputs.force_run == 'true'
     steps:
       - name: Sjekk ut repo
         uses: actions/checkout@v3
@@ -26,6 +53,7 @@ jobs:
   deploy:
     needs: test
     runs-on: ubuntu-latest
+    if: github.event.inputs.force_run == 'true'
     steps:
       - name: Deploy backend til server
-        run: ssh user@server "cd /security-system && git pull && systemctl restart security-system"
+        run: echo "Deployment disabled in deprecated workflow"
