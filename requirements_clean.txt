@@ -1,0 +1,9 @@
+opencv-python
+face_recognition
+numpy
+Flask
+imutils
+paho-mqtt
+scikit-learn
+tensorflow
+pqcrypto
