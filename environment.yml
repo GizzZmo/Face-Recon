@@ -1,0 +1,11 @@
+name: face-recon-env
+channels:
+  - defaults
+dependencies:
+  - python=3.9
+  - numpy
+  - opencv
+  - pip
+  - pip:
+      - face_recognition
+      - any-other-package
