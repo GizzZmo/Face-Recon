@@ -210,7 +210,7 @@ flake8 src/ --count || echo "Style issues exist but not critical"
 - **iOS App**: `ios.app.swift` - NFC functionality
 - **Android App**: `android_app.java` - RFID/NFC support  
 - **MQTT Client**: `mqtt_client.py` - IoT device communication
-- **Raspberry Pi**: `rpi_constroller.py` - Hardware control
+- **Raspberry Pi**: `rpi_controller.py` - Hardware control
 
 Access these components directly - they are standalone scripts for their respective platforms.
 
