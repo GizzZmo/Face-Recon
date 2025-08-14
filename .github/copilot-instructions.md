@@ -26,7 +26,7 @@ Face-Recon is a multi-component AI security system combining face recognition, v
 
 3. **Setup PYTHONPATH** (CRITICAL for all src/ imports):
    ```bash
-   export PYTHONPATH=/home/runner/work/Face-Recon/Face-Recon
+   export PYTHONPATH=$PWD
    ```
 
 4. **Create Required Directories**:
