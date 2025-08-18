@@ -23,3 +23,7 @@ jobs:
 
       - name: Run Black
         run: black .
+
+git add .
+git commit -m "Apply code formatting to fix CI failure"
+git push
