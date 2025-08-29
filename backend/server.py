@@ -4,12 +4,14 @@ from src.config import DATABASE_PATH
 
 app = Flask(__name__)
 
+
 def get_db_connection():
     conn = sqlite3.connect(DATABASE_PATH)
     conn.row_factory = sqlite3.Row
     return conn
 
-@app.route('/access', methods=['POST'])
+
+@app.route("/access", methods=["POST"])
 def check_access():
     data = request.json
     user = data.get("user")
@@ -27,5 +29,6 @@ def check_access():
         return jsonify({"access": True})
     return jsonify({"access": False})
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     app.run(debug=True)

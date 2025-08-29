@@ -4,6 +4,7 @@ import os
 import numpy as np
 from src.config import FACE_TOLERANCE, DETECTION_MODEL
 
+
 def encode_faces_in_directory(directory):
     encodings = []
     names = []
@@ -20,13 +21,16 @@ def encode_faces_in_directory(directory):
                 names.append(person_name)
     return encodings, names
 
+
 def recognize_faces_in_frame(frame, known_encodings, known_names):
     rgb_frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
     face_locations = face_recognition.face_locations(rgb_frame, model=DETECTION_MODEL)
     face_encodings = face_recognition.face_encodings(rgb_frame, face_locations)
     names = []
     for encoding in face_encodings:
-        matches = face_recognition.compare_faces(known_encodings, encoding, tolerance=FACE_TOLERANCE)
+        matches = face_recognition.compare_faces(
+            known_encodings, encoding, tolerance=FACE_TOLERANCE
+        )
         name = "Unknown"
         if True in matches:
             first_match_index = matches.index(True)
