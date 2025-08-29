@@ -46,6 +46,7 @@ jobs:
 
       - name: Installer avhengigheter
         run: pip install -r requirements.txt
+        run: pip install isort[colors]
 
       - name: Kjør tester
         run: pytest
