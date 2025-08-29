@@ -7,3 +7,4 @@ face_recognition
 numpy
 Flask
 imutils
+isort[colors]

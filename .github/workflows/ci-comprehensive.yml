@@ -37,11 +37,14 @@ jobs:
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
+
         pip install flake8 black isort mypy safety bandit
+        
         # Install lightweight dependencies for CI
         pip install numpy Flask pytest pytest-cov
         # Skip heavy dependencies (opencv-python, face_recognition) to avoid timeouts
         # The tests are designed to gracefully handle missing optional dependencies
+
         
     - name: Format check with Black
       run: |
