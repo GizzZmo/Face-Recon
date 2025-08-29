@@ -8,6 +8,7 @@ from src.config import ENCODINGS_PATH
 from src.utils.face_utils import recognize_faces_in_frame
 from src.utils.error_handling import safe_run, log_error
 
+
 @safe_run
 def main():
     print("Starting real-time face recognition...")
@@ -31,13 +32,14 @@ def main():
             for name in names:
                 print(f"Recognized: {name}")
 
-            cv2.imshow('Face Recognition', frame)
-            if cv2.waitKey(1) & 0xFF == ord('q'):
+            cv2.imshow("Face Recognition", frame)
+            if cv2.waitKey(1) & 0xFF == ord("q"):
                 break
 
     finally:
         video_capture.release()
         cv2.destroyAllWindows()
+
 
 if __name__ == "__main__":
     try:

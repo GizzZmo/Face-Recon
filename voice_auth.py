@@ -1,5 +1,6 @@
 import speech_recognition as sr
 
+
 def recognize_voice():
     recognizer = sr.Recognizer()
     with sr.Microphone() as source:
@@ -10,6 +11,7 @@ def recognize_voice():
         return text
     except sr.UnknownValueError:
         return "Ukjent stemme"
+
 
 if recognize_voice() == "Godkjent frase":
     print("Adgang tillatt!")

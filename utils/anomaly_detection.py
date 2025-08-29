@@ -5,6 +5,7 @@ AI-based anomaly detection for access logs or sensor data.
 import numpy as np
 from sklearn.ensemble import IsolationForest
 
+
 class AnomalyDetector:
     def __init__(self):
         self.model = IsolationForest()
@@ -14,6 +15,7 @@ class AnomalyDetector:
 
     def detect(self, value):
         return self.model.predict([[value]])[0]
+
 
 if __name__ == "__main__":
     # Example usage
