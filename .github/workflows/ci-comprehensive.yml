@@ -38,6 +38,7 @@ jobs:
       run: |
         python -m pip install --upgrade pip
 
+
         pip install flake8 black isort mypy safety bandit
         
         # Install lightweight dependencies for CI
@@ -46,11 +47,10 @@ jobs:
         # The tests are designed to gracefully handle missing optional dependencies
 
         
-    - name: Format check with Black
-      run: |
-        echo "::group::Black Formatting Check"
-        black --check --diff --color .
-        echo "::endgroup::"
+      - name: Run Black code formatter
+        run: |
+          pip install black
+          black --check .
         
     - name: Import sorting check with isort
       run: |
