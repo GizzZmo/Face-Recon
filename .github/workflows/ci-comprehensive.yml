@@ -41,11 +41,10 @@ jobs:
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
         pip install isort[colors]
         
-    - name: Format check with Black
-      run: |
-        echo "::group::Black Formatting Check"
-        black --check --diff --color .
-        echo "::endgroup::"
+      - name: Run Black code formatter
+        run: |
+          pip install black
+          black --check .
         
     - name: Import sorting check with isort
       run: |
