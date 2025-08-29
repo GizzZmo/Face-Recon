@@ -45,6 +45,30 @@ This project features a comprehensive CI/CD pipeline optimized for:
 - **Code Coverage**: Pytest with coverage reporting
 - **Type Checking**: MyPy integration for better code reliability
 
+## 📦 Releases
+
+The Face-Recon Security System follows [Semantic Versioning](https://semver.org/) for releases.
+
+### Latest Release: v1.1.0
+- **Enhanced CI/CD Pipeline**: Multi-stage testing and automation
+- **Advanced Code Quality**: Comprehensive linting and security scanning
+- **Release Automation**: Automated GitHub release creation
+- **Version Management**: Scripts for easy release management
+
+### Creating Releases
+```bash
+# Quick release (automated)
+./scripts/release.sh 1.2.0
+
+# Manual release process
+python scripts/version.py update 1.2.0
+git commit -am "Bump version to 1.2.0"
+git tag v1.2.0
+git push origin main v1.2.0
+```
+
+📖 See [RELEASE.md](RELEASE.md) for detailed release instructions.
+
 ## Getting Started
 
 ### 1. Install Python dependencies
