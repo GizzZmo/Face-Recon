@@ -37,9 +37,8 @@ jobs:
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
-        pip install flake8 black mypy safety bandit
+        pip install flake8 black mypy safety bandit isort[colors]
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
-        pip install isort[colors]
         
       - name: Run Black code formatter
         run: |
