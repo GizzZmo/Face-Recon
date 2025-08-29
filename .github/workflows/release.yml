@@ -1,0 +1,279 @@
+name: Create Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'Release version (e.g., v1.1.0)'
+        required: true
+        default: 'v1.1.0'
+      prerelease:
+        description: 'Mark as pre-release'
+        required: false
+        type: boolean
+        default: false
+
+jobs:
+  create-release:
+    name: Create GitHub Release
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+    
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: "3.11"
+    
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install build wheel setuptools
+        if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+    
+    - name: Get version from inputs or tag
+      id: version
+      run: |
+        if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+          VERSION="${{ github.event.inputs.version }}"
+        else
+          VERSION="${{ github.ref_name }}"
+        fi
+        echo "version=${VERSION}" >> $GITHUB_OUTPUT
+        echo "Release version: ${VERSION}"
+    
+    - name: Validate version format
+      run: |
+        VERSION="${{ steps.version.outputs.version }}"
+        if [[ ! $VERSION =~ ^v[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
+          echo "❌ Invalid version format: $VERSION"
+          echo "Expected format: vX.Y.Z (e.g., v1.1.0)"
+          exit 1
+        fi
+        echo "✅ Version format is valid: $VERSION"
+    
+    - name: Extract changelog for this version
+      id: changelog
+      run: |
+        VERSION="${{ steps.version.outputs.version }}"
+        # Remove 'v' prefix for changelog lookup
+        VERSION_NUM=${VERSION#v}
+        
+        # Extract changelog section for this version
+        if [ -f CHANGELOG.md ]; then
+          # Get content between this version and the next version/end
+          CHANGELOG_CONTENT=$(awk "/## \[$VERSION_NUM\]/{flag=1; next} /## \[/{flag=0} flag" CHANGELOG.md)
+          
+          if [ -n "$CHANGELOG_CONTENT" ]; then
+            echo "changelog_found=true" >> $GITHUB_OUTPUT
+            # Save changelog to file for release notes
+            echo "$CHANGELOG_CONTENT" > /tmp/release_notes.md
+          else
+            echo "changelog_found=false" >> $GITHUB_OUTPUT
+            echo "⚠️ No changelog found for version $VERSION_NUM"
+          fi
+        else
+          echo "changelog_found=false" >> $GITHUB_OUTPUT
+          echo "⚠️ CHANGELOG.md not found"
+        fi
+    
+    - name: Create release artifacts
+      run: |
+        echo "🔧 Creating release artifacts..."
+        mkdir -p dist
+        
+        # Create source distribution
+        tar -czf dist/face-recon-${{ steps.version.outputs.version }}-source.tar.gz \
+          --exclude='__pycache__' \
+          --exclude='.git' \
+          --exclude='dist' \
+          --exclude='*.pyc' \
+          --exclude='.pytest_cache' \
+          src/ requirements.txt README.md pyproject.toml CHANGELOG.md
+        
+        # Create documentation package
+        tar -czf dist/face-recon-${{ steps.version.outputs.version }}-docs.tar.gz \
+          README.md CHANGELOG.md backend.md frontend\&backend.md howto.txt
+        
+        echo "📦 Created artifacts:"
+        ls -la dist/
+    
+    - name: Generate release notes
+      id: release_notes
+      run: |
+        VERSION="${{ steps.version.outputs.version }}"
+        VERSION_NUM=${VERSION#v}
+        
+        # Create comprehensive release notes
+        cat > /tmp/full_release_notes.md << 'EOF'
+        # 🚀 Face-Recon Security System ${{ steps.version.outputs.version }}
+        
+        A comprehensive security system combining **AI**, **Blockchain**, **IoT**, and **Quantum-safe encryption** for next-generation access control.
+        
+        ## 🎯 Key Features
+        
+        ### 🤖 **AI-Powered Security**
+        - **Face Recognition**: Advanced computer vision for accurate identification
+        - **Voice Authentication**: Multi-modal biometric verification  
+        - **Smart Access Control**: ML-based decision making for dynamic security
+        - **Anomaly Detection**: Real-time threat identification and response
+        
+        ### ⛓️ **Blockchain Integration**
+        - **Immutable Logs**: Tamper-proof access history via smart contracts
+        - **Decentralized Security**: Distributed trust verification
+        - **Audit Trail**: Complete accountability and compliance tracking
+        
+        ### 🌐 **IoT Ecosystem**
+        - **MQTT Integration**: Real-time device communication
+        - **Raspberry Pi Support**: Edge computing capabilities
+        - **RFID/NFC**: Multiple access methods for flexibility
+        - **Sensor Network**: Environmental monitoring and control
+        
+        ### 🔐 **Advanced Security**
+        - **Quantum Encryption**: Future-proof cryptographic protection
+        - **Zero Trust Architecture**: Continuous verification model
+        - **Multi-factor Authentication**: Layered security approach
+        - **Real-time Monitoring**: Live threat detection and response
+        
+        ## 🛠️ **Technical Excellence**
+        
+        ### **CI/CD Pipeline**
+        - ✅ **Multi-stage Testing**: Python 3.8-3.12 across Ubuntu, Windows, macOS
+        - ✅ **Code Quality**: Black, isort, flake8, mypy integration
+        - ✅ **Security Scanning**: Safety and Bandit automated checks
+        - ✅ **Automated Deployment**: Production-ready pipeline
+        
+        ### **Code Quality**
+        - 📋 **Type Safety**: MyPy integration for reliability
+        - 🔍 **Security Analysis**: Comprehensive vulnerability scanning
+        - 📊 **Test Coverage**: Comprehensive test suite
+        - 📚 **Documentation**: Detailed guides and API docs
+        
+        ## 📱 **Multi-Platform Support**
+        
+        - **🌐 Web Dashboard**: Modern HTML/JS/CSS interface
+        - **📱 iOS App**: Native Swift application
+        - **🤖 Android App**: Native Java application  
+        - **🐍 Python Backend**: Robust server architecture
+        - **⚡ Real-time Processing**: Live video recognition
+        
+        ## 🚀 **Quick Start**
+        
+        ```bash
+        # Clone and setup
+        git clone https://github.com/GizzZmo/Face-Recon.git
+        cd Face-Recon
+        pip install -r requirements.txt
+        
+        # Prepare known faces
+        mkdir -p data/known_faces
+        # Add person images: data/known_faces/person_name/image.jpg
+        
+        # Build face database
+        python src/main_build_database.py
+        
+        # Start real-time recognition
+        python src/main_realtime_recognition.py
+        ```
+        
+        ## 📋 **System Requirements**
+        
+        - **Python**: 3.8+ (tested up to 3.12)
+        - **OS**: Ubuntu, Windows, macOS
+        - **Hardware**: Camera for face recognition
+        - **Optional**: Raspberry Pi for IoT features
+        
+        EOF
+        
+        # Add changelog if available
+        if [ "${{ steps.changelog.outputs.changelog_found }}" = "true" ]; then
+          echo "" >> /tmp/full_release_notes.md
+          echo "## 📝 **What's New in $VERSION_NUM**" >> /tmp/full_release_notes.md
+          echo "" >> /tmp/full_release_notes.md
+          cat /tmp/release_notes.md >> /tmp/full_release_notes.md
+        fi
+        
+        # Add footer
+        cat >> /tmp/full_release_notes.md << 'EOF'
+        
+        ## 🔗 **Links & Resources**
+        
+        - 📖 **Documentation**: [README.md](README.md)
+        - 🔧 **Backend Guide**: [backend.md](backend.md)
+        - 🎨 **Frontend Guide**: [frontend&backend.md](frontend&backend.md)
+        - 📋 **How-to Guide**: [howto.txt](howto.txt)
+        - 📜 **Changelog**: [CHANGELOG.md](CHANGELOG.md)
+        
+        ## 📞 **Support**
+        
+        - 🐛 **Bug Reports**: [GitHub Issues](https://github.com/GizzZmo/Face-Recon/issues)
+        - 💡 **Feature Requests**: [GitHub Discussions](https://github.com/GizzZmo/Face-Recon/discussions)
+        - 📧 **Contact**: [Create an Issue](https://github.com/GizzZmo/Face-Recon/issues/new)
+        
+        ---
+        
+        **🔐 Licensed under MIT** - Free for commercial and personal use
+        
+        **⭐ Star this repo** if you find it useful!
+        EOF
+        
+        echo "Generated release notes:"
+        cat /tmp/full_release_notes.md
+    
+    - name: Create GitHub Release
+      uses: actions/create-release@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        tag_name: ${{ steps.version.outputs.version }}
+        release_name: "Face-Recon Security System ${{ steps.version.outputs.version }}"
+        body_path: /tmp/full_release_notes.md
+        draft: false
+        prerelease: ${{ github.event.inputs.prerelease || false }}
+    
+    - name: Upload Release Assets
+      uses: actions/upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        upload_url: ${{ steps.create_release.outputs.upload_url }}
+        asset_path: dist/face-recon-${{ steps.version.outputs.version }}-source.tar.gz
+        asset_name: face-recon-${{ steps.version.outputs.version }}-source.tar.gz
+        asset_content_type: application/gzip
+    
+    - name: Upload Documentation Assets
+      uses: actions/upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        upload_url: ${{ steps.create_release.outputs.upload_url }}
+        asset_path: dist/face-recon-${{ steps.version.outputs.version }}-docs.tar.gz
+        asset_name: face-recon-${{ steps.version.outputs.version }}-docs.tar.gz
+        asset_content_type: application/gzip
+    
+    - name: Success Summary
+      run: |
+        echo "🎉 **Release Created Successfully!**"
+        echo ""
+        echo "📋 **Release Details:**"
+        echo "   - Version: ${{ steps.version.outputs.version }}"
+        echo "   - Tag: ${{ steps.version.outputs.version }}"
+        echo "   - Prerelease: ${{ github.event.inputs.prerelease || false }}"
+        echo ""
+        echo "📦 **Artifacts:**"
+        echo "   - Source package: face-recon-${{ steps.version.outputs.version }}-source.tar.gz"
+        echo "   - Documentation: face-recon-${{ steps.version.outputs.version }}-docs.tar.gz"
+        echo ""
+        echo "🔗 **Next Steps:**"
+        echo "   - Check the release at: https://github.com/GizzZmo/Face-Recon/releases/tag/${{ steps.version.outputs.version }}"
+        echo "   - Update any external references to the new version"
+        echo "   - Consider updating documentation or announcements"
