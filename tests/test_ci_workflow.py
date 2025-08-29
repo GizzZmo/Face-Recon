@@ -137,8 +137,7 @@ def test_security_tools_integration():
                 capture_output=True,
                 text=True,
             )
-            # If safety is available, it should work
-            assert safety_result.returncode == 0 or "not found" in safety_result.stderr
+            assert safety_result.returncode == 0, f"safety not available or failed to run: {safety_result.stderr}"
     except Exception:
         # If safety can't be installed/run, that's ok for basic tests
         pass
