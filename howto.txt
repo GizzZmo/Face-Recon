@@ -22,21 +22,14 @@ Build the Face Database:
 Run the main_build_database.py script from your project's root directory:
 Bash
 
-python main_build_database.py
+python src/main_build_database.py
 This will create the data/encodings.pickle file.
 Run Real-time Recognition:
 Execute the main_realtime_recognition.py script:
 Bash
 
-python main_realtime_recognition.py
+python src/main_realtime_recognition.py
 This should activate your webcam and start recognizing faces. Press 'q' to quit.
-Run Image Recognition (Optional):
-Place an image you want to test in data/unknown_faces/ (e.g., example.jpg).
-Update the test_image_path in main_image_recognition.py if needed.
-Run the script:
-Bash
-
-python main_image_recognition.py
 General Advice for Improving Your GizzZmo/Face-Recon Project:
 Even without seeing your specific code, here's how you can use the provided structure and code to improve your project:
 
