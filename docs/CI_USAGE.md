@@ -25,10 +25,10 @@ The CI pipeline is designed to be robust and efficient, with graceful handling o
 ### Core Dependencies (Always Installed)
 - `numpy` - Essential for numerical operations
 - `Flask` - Required for web functionality
+- `opencv-python` - Computer vision library (required for import tests)
 - `pytest` family - Testing framework
 
 ### Optional Dependencies (Skipped in CI)
-- `opencv-python` - Heavy computer vision library
 - `face_recognition` - Depends on dlib (very heavy compilation)
 - `dlib` - C++ compilation required (causes timeouts)
 
@@ -57,13 +57,12 @@ pip install -r requirements-ci.txt
 
 ### What Passes
 - Core Python functionality
-- Essential dependency imports (numpy, Flask)
+- Essential dependency imports (numpy, Flask, opencv-python)
 - Code formatting and linting
 - Security scans
 - Build artifact creation
 
 ### What's Gracefully Handled
-- Missing OpenCV (skipped tests, warnings)
 - Missing face_recognition (skipped tests, warnings)
 - Network timeouts during dependency installation
 - Platform-specific dependency issues
@@ -151,12 +150,11 @@ flake8 . --max-line-length=88
 - Security scans complete
 
 ### Expected Warnings
-- "OpenCV not available" - Normal in CI
 - "Some dependencies not available" - Expected
 - Minor linting issues - Acceptable
 
 ### Failure Indicators
-- Core import failures (config, numpy, Flask)
+- Core import failures (config, numpy, Flask, opencv-python)
 - Test failures (not skips)
 - Security vulnerabilities found
 - Build artifact creation fails
