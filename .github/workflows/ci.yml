@@ -45,8 +45,9 @@ jobs:
           python-version: '3.9'
 
       - name: Installer avhengigheter
-        run: pip install -r requirements.txt
-        run: pip install isort[colors]
+        run: |
+          pip install -r requirements.txt
+          pip install isort[colors]
 
       - name: Kjør tester
         run: pytest
