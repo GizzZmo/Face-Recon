@@ -2,7 +2,7 @@
 Quantum-safe encryption utilities using the Kyber algorithm (from pqcrypto).
 """
 
-from pqcrypto.kem.kyber import generate_keypair, encrypt, decrypt
+from pqcrypto.kem.kyber import decrypt, encrypt, generate_keypair
 
 
 def generate_keys():

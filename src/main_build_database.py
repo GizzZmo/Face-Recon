@@ -4,9 +4,10 @@ Builds the facial encoding database from known faces.
 
 import os
 import pickle
-from src.config import KNOWN_FACES_DIR, ENCODINGS_PATH
+
+from src.config import ENCODINGS_PATH, KNOWN_FACES_DIR
+from src.utils.error_handling import log_error, safe_run
 from src.utils.face_utils import encode_faces_in_directory
-from src.utils.error_handling import safe_run, log_error
 
 
 @safe_run

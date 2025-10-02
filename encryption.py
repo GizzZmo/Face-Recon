@@ -1,4 +1,4 @@
-from pqcrypto.kem.kyber import generate_keypair, encrypt, decrypt
+from pqcrypto.kem.kyber import decrypt, encrypt, generate_keypair
 
 public_key, private_key = generate_keypair()
 ciphertext, shared_secret = encrypt(public_key)

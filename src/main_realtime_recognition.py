@@ -2,11 +2,13 @@
 Runs real-time face recognition using webcam.
 """
 
-import cv2
 import pickle
+
+import cv2
+
 from src.config import ENCODINGS_PATH
+from src.utils.error_handling import log_error, safe_run
 from src.utils.face_utils import recognize_faces_in_frame
-from src.utils.error_handling import safe_run, log_error
 
 
 @safe_run
