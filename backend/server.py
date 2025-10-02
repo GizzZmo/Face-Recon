@@ -1,5 +1,7 @@
-from flask import Flask, request, jsonify
 import sqlite3
+
+from flask import Flask, jsonify, request
+
 from src.config import DATABASE_PATH
 
 app = Flask(__name__)

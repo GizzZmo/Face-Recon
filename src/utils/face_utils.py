@@ -1,8 +1,10 @@
-import cv2
-import face_recognition
 import os
+
+import cv2
 import numpy as np
-from src.config import FACE_TOLERANCE, DETECTION_MODEL
+
+import face_recognition
+from src.config import DETECTION_MODEL, FACE_TOLERANCE
 
 
 def encode_faces_in_directory(directory):
