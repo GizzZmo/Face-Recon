@@ -2,13 +2,23 @@
 Runs real-time face recognition using webcam.
 """
 
+import os
 import pickle
+import sys
 
 import cv2
 
-from src.config import ENCODINGS_PATH
-from src.utils.error_handling import log_error, safe_run
-from src.utils.face_utils import recognize_faces_in_frame
+# Support both direct script execution and module execution
+try:
+    from src.config import ENCODINGS_PATH
+    from src.utils.error_handling import log_error, safe_run
+    from src.utils.face_utils import recognize_faces_in_frame
+except ImportError:
+    # Add parent directory to path for direct execution
+    sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+    from src.config import ENCODINGS_PATH
+    from src.utils.error_handling import log_error, safe_run
+    from src.utils.face_utils import recognize_faces_in_frame
 
 
 @safe_run

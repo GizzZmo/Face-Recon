@@ -4,10 +4,19 @@ Builds the facial encoding database from known faces.
 
 import os
 import pickle
+import sys
 
-from src.config import ENCODINGS_PATH, KNOWN_FACES_DIR
-from src.utils.error_handling import log_error, safe_run
-from src.utils.face_utils import encode_faces_in_directory
+# Support both direct script execution and module execution
+try:
+    from src.config import ENCODINGS_PATH, KNOWN_FACES_DIR
+    from src.utils.error_handling import log_error, safe_run
+    from src.utils.face_utils import encode_faces_in_directory
+except ImportError:
+    # Add parent directory to path for direct execution
+    sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+    from src.config import ENCODINGS_PATH, KNOWN_FACES_DIR
+    from src.utils.error_handling import log_error, safe_run
+    from src.utils.face_utils import encode_faces_in_directory
 
 
 @safe_run
