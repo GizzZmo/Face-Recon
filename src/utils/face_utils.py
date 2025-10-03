@@ -5,14 +5,7 @@ import cv2
 import numpy as np
 
 import face_recognition
-
-# Support both direct script execution and module execution
-try:
-    from src.config import DETECTION_MODEL, FACE_TOLERANCE
-except ImportError:
-    # Add parent directory to path for direct execution
-    sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
-    from src.config import DETECTION_MODEL, FACE_TOLERANCE
+from src.config import DETECTION_MODEL, FACE_TOLERANCE
 
 
 def encode_faces_in_directory(directory):
