@@ -61,20 +61,48 @@ The CI pipeline is fully operational and optimized for reliability:
 
 ## Getting Started
 
-### 1. Install Python dependencies
+> **📖 Full Installation Guide:** For detailed installation instructions and troubleshooting, see [INSTALL.md](INSTALL.md)
 
+### Quick Start
 
 ```bash
-# 1. Prepare training data
+# 1. Clone and enter the repository
+git clone https://github.com/GizzZmo/Face-Recon.git
+cd Face-Recon
+
+# 2. Create and activate a virtual environment
+python -m venv venv
+source venv/bin/activate  # On Windows: venv\Scripts\activate
+
+# 3. Install dependencies
+pip install -r requirements.txt
+
+# 4. Prepare training data
 mkdir -p data/known_faces/john_doe
 # Add photos of John Doe to the folder
 
-# 2. Build face recognition database
+# 5. Build face recognition database
 python src/main_build_database.py
 
-# 3. Start real-time recognition
+# 6. Start real-time recognition
 python src/main_realtime_recognition.py
 ```
+
+### ⚠️ Common Installation Issues
+
+**Issue: ModuleNotFoundError: No module named 'src'**
+- ✅ Fixed in latest version! Scripts now support direct execution.
+- Alternative: Run as module: `python -m src.main_build_database`
+
+**Issue: dlib installation fails on Windows**
+- Use pre-built wheels: See [INSTALL.md#dlib-installation](INSTALL.md#issue-2-dlib-installation-fails)
+- Or use Conda: `conda install -c conda-forge dlib`
+- Python 3.13 is not supported yet - use Python 3.10 or 3.11
+
+**Issue: No module named 'cv2'**
+- Install OpenCV: `pip install opencv-python`
+
+**For complete troubleshooting guide, see [INSTALL.md](INSTALL.md)**
 
 #### **Start Backend Server**
 ```bash
