@@ -4,6 +4,7 @@
 # Core dependencies that install quickly
 numpy>=1.20.0
 Flask>=2.0.0
+opencv-python>=4.5.0
 
 # Development and testing dependencies  
 pytest>=7.0.0
@@ -14,9 +15,6 @@ flake8>=5.0.0
 mypy>=1.0.0
 safety>=2.0.0
 bandit>=1.7.0
-
-# Optional: Add opencv-python-headless for faster opencv in CI if needed
-# opencv-python-headless>=4.5.0
 
 # Note: face_recognition and dlib are heavy dependencies 
 # that cause CI timeouts - install separately if needed
