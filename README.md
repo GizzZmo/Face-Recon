@@ -1,5 +1,7 @@
 # Face-Recon Security System
 
+> **⚡ Just want to get started?** See [QUICKSTART.md](QUICKSTART.md) for fast setup!  
+> **❌ Getting errors?** Check [TROUBLESHOOTING.md](TROUBLESHOOTING.md) for solutions!
 
 A high-tech security system combining AI, Blockchain, IoT, and quantum-safe encryption.
 
