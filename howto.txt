@@ -1,4 +1,8 @@
 How to Use This Code:
+
+⚠️ IMPORTANT: For detailed installation instructions and troubleshooting, see INSTALL.md
+
+Quick Start:
 Set up the Directory Structure: Create the folders as outlined in the "File Structure" section (data/known_faces/, src/, etc.).
 Populate data/known_faces/:
 Inside data/known_faces/, create a sub-directory for each person you want to recognize (e.g., data/known_faces/Elon_Musk/).
@@ -18,6 +22,12 @@ Install the required libraries:
 Bash
 
 pip install -r requirements.txt
+
+⚠️ If installation fails (especially on Windows or Python 3.13):
+- See INSTALL.md for detailed troubleshooting
+- Use Python 3.10 or 3.11 instead of 3.13
+- Consider using conda: conda install -c conda-forge dlib
+
 Build the Face Database:
 Run the main_build_database.py script from your project's root directory:
 Bash
