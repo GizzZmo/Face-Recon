@@ -95,14 +95,20 @@ python src/main_realtime_recognition.py
 - Alternative: Run as module: `python -m src.main_build_database`
 
 **Issue: dlib installation fails on Windows**
-- Use pre-built wheels: See [INSTALL.md#dlib-installation](INSTALL.md#issue-2-dlib-installation-fails)
+- Use pre-built wheels: See [TROUBLESHOOTING.md](TROUBLESHOOTING.md#error-dlib-installation-fails)
 - Or use Conda: `conda install -c conda-forge dlib`
 - Python 3.13 is not supported yet - use Python 3.10 or 3.11
 
 **Issue: No module named 'cv2'**
 - Install OpenCV: `pip install opencv-python`
 
-**For complete troubleshooting guide, see [INSTALL.md](INSTALL.md)**
+**Issue: No space left on device (Windows)**
+- Free up C: drive space (need ~10GB)
+- Or change TEMP directory: See [TROUBLESHOOTING.md](TROUBLESHOOTING.md#error-no-space-left-on-device-windows)
+
+**📖 Complete Guides:**
+- [TROUBLESHOOTING.md](TROUBLESHOOTING.md) - Quick fixes for common errors
+- [INSTALL.md](INSTALL.md) - Detailed installation instructions
 
 #### **Start Backend Server**
 ```bash
