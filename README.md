@@ -1,5 +1,7 @@
 # Face-Recon Security System
 
+> **⚡ Just want to get started?** See [QUICKSTART.md](QUICKSTART.md) for fast setup!  
+> **❌ Getting errors?** Check [TROUBLESHOOTING.md](TROUBLESHOOTING.md) for solutions!
 
 A high-tech security system combining AI, Blockchain, IoT, and quantum-safe encryption.
 
@@ -61,20 +63,54 @@ The CI pipeline is fully operational and optimized for reliability:
 
 ## Getting Started
 
-### 1. Install Python dependencies
+> **📖 Full Installation Guide:** For detailed installation instructions and troubleshooting, see [INSTALL.md](INSTALL.md)
 
+### Quick Start
 
 ```bash
-# 1. Prepare training data
+# 1. Clone and enter the repository
+git clone https://github.com/GizzZmo/Face-Recon.git
+cd Face-Recon
+
+# 2. Create and activate a virtual environment
+python -m venv venv
+source venv/bin/activate  # On Windows: venv\Scripts\activate
+
+# 3. Install dependencies
+pip install -r requirements.txt
+
+# 4. Prepare training data
 mkdir -p data/known_faces/john_doe
 # Add photos of John Doe to the folder
 
-# 2. Build face recognition database
+# 5. Build face recognition database
 python src/main_build_database.py
 
-# 3. Start real-time recognition
+# 6. Start real-time recognition
 python src/main_realtime_recognition.py
 ```
+
+### ⚠️ Common Installation Issues
+
+**Issue: ModuleNotFoundError: No module named 'src'**
+- ✅ Fixed in latest version! Scripts now support direct execution.
+- Alternative: Run as module: `python -m src.main_build_database`
+
+**Issue: dlib installation fails on Windows**
+- Use pre-built wheels: See [TROUBLESHOOTING.md](TROUBLESHOOTING.md#error-dlib-installation-fails)
+- Or use Conda: `conda install -c conda-forge dlib`
+- Python 3.13 is not supported yet - use Python 3.10 or 3.11
+
+**Issue: No module named 'cv2'**
+- Install OpenCV: `pip install opencv-python`
+
+**Issue: No space left on device (Windows)**
+- Free up C: drive space (need ~10GB)
+- Or change TEMP directory: See [TROUBLESHOOTING.md](TROUBLESHOOTING.md#error-no-space-left-on-device-windows)
+
+**📖 Complete Guides:**
+- [TROUBLESHOOTING.md](TROUBLESHOOTING.md) - Quick fixes for common errors
+- [INSTALL.md](INSTALL.md) - Detailed installation instructions
 
 #### **Start Backend Server**
 ```bash
