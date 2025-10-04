@@ -6,7 +6,7 @@ import os
 import sys
 
 # Ensure the parent directory is in the path for imports to work
-# This allows running both as `python src/main_build_database.py` 
+# This allows running both as `python src/main_build_database.py`
 # and as `python -m src.main_build_database`
 if __name__ == "__main__":
     # Add parent directory to path if running as script
