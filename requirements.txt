@@ -8,3 +8,10 @@ numpy
 Flask
 imutils
 isort[colors]
+flake8
+black
+pytest
+pytest-cov
+mypy
+safety
+bandit
