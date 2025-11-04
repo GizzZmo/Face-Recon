@@ -1,5 +1,8 @@
 # Face-Recon Security System
 
+[![Comprehensive CI/CD Pipeline](https://github.com/GizzZmo/Face-Recon/actions/workflows/ci-comprehensive.yml/badge.svg)](https://github.com/GizzZmo/Face-Recon/actions/workflows/ci-comprehensive.yml)
+[![Black Formatting Check](https://github.com/GizzZmo/Face-Recon/actions/workflows/black.yml/badge.svg)](https://github.com/GizzZmo/Face-Recon/actions/workflows/black.yml)
+
 > **⚡ Just want to get started?** See [QUICKSTART.md](QUICKSTART.md) for fast setup!  
 > **❌ Getting errors?** Check [TROUBLESHOOTING.md](TROUBLESHOOTING.md) for solutions!
 
