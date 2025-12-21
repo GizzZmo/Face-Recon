@@ -339,13 +339,22 @@ GET /api/v1/analytics           # Access analytics and reports
 
 ## 🤝 Contributing
 
-We welcome contributions to improve Face-Recon! Here's how you can help:
+We welcome contributions to improve Face-Recon! Whether you're fixing bugs, adding features, improving documentation, or suggesting ideas, your input is valuable.
+
+### **Quick Start for Contributors**
+
+See our [**CONTRIBUTING.md**](CONTRIBUTING.md) guide for detailed instructions on:
+- Setting up your development environment
+- Coding standards and style guide
+- Testing requirements
+- Pull request process
+- Reporting issues
 
 ### **Development Setup**
 1. Fork the repository
 2. Create a feature branch: `git checkout -b feature/amazing-feature`
-3. Install development dependencies: `pip install -e .[dev]`
-4. Run tests: `pytest`
+3. Install development dependencies: `pip install -r requirements.txt`
+4. Run tests: `pytest tests/ -v`
 5. Make your changes and add tests
 6. Ensure code quality: `black . && isort . && flake8`
 7. Commit your changes: `git commit -m 'Add amazing feature'`
@@ -354,10 +363,14 @@ We welcome contributions to improve Face-Recon! Here's how you can help:
 
 ### **Code Standards**
 - Follow PEP 8 Python style guidelines
+- Maximum line length: 88 characters (Black default)
 - Add type hints for all function parameters and returns
 - Write comprehensive docstrings for all public methods
 - Include unit tests for new functionality
 - Update documentation for any API changes
+
+**📖 Full Guide:** [CONTRIBUTING.md](CONTRIBUTING.md)  
+**📋 Change History:** [CHANGELOG.md](CHANGELOG.md)
 
 ## 📄 License
 
