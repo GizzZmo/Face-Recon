@@ -44,7 +44,8 @@ def authenticate_voice(expected_phrase: str = "Approved phrase") -> bool:
         print("Access granted!")
         return True
     else:
-        print(f"Access denied. Heard: {recognized}")
+        # Don't log what was heard for security reasons
+        print("Access denied.")
         return False
 
 
