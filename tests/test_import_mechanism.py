@@ -30,7 +30,7 @@ def test_direct_script_execution():
 
     # The error we expect is missing cv2 or face_recognition (if not installed)
     # which is acceptable - we're just testing the import mechanism
-    print(f"✓ Direct execution imports work (may fail on missing dependencies)")
+    print("✓ Direct execution imports work (may fail on missing dependencies)")
 
 
 def test_module_execution():
@@ -54,7 +54,7 @@ def test_module_execution():
         "No module named 'src'" not in result.stderr
     ), "Module execution should not fail with 'No module named src'"
 
-    print(f"✓ Module execution imports work (may fail on missing dependencies)")
+    print("✓ Module execution imports work (may fail on missing dependencies)")
 
 
 def test_src_package_structure():
@@ -85,7 +85,8 @@ def test_src_package_structure():
 
 def test_config_import_without_dependencies():
     """Test that config can be imported without heavy dependencies"""
-    # This tests that we can at least import config without needing cv2, face_recognition, etc.
+    # This tests that we can at least import config without needing cv2,
+    # face_recognition, etc.
     base_dir = os.path.dirname(os.path.dirname(__file__))
 
     # Create a temporary Python script to test imports
