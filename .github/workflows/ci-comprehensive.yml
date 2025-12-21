@@ -135,6 +135,10 @@ jobs:
         mkdir -p tests data/known_faces data/unknown_faces logs
       shell: bash
       
+    - name: Set PYTHONPATH
+      run: echo "PYTHONPATH=$PYTHONPATH:$(pwd)" >> $GITHUB_ENV
+      shell: bash
+      
     - name: Run basic import tests
       run: |
         echo "::group::Import Tests"
