@@ -18,6 +18,9 @@ jobs:
         with:
           python-version: '3.9'
 
+      - name: Set PYTHONPATH
+        run: echo "PYTHONPATH=${{ github.workspace }}" >> $GITHUB_ENV
+
       - name: Install Black
         run: pip install black
 
