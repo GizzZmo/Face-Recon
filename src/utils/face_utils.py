@@ -1,14 +1,27 @@
+"""
+Face recognition utility functions for encoding and recognizing faces.
+"""
+
 import os
-import sys
 
 import cv2
-import numpy as np
-
 import face_recognition
+
 from src.config import DETECTION_MODEL, FACE_TOLERANCE
 
 
 def encode_faces_in_directory(directory):
+    """
+    Encode all faces found in subdirectories of the given directory.
+
+    Args:
+        directory: Path to directory containing subdirectories of face images.
+                  Each subdirectory name should be the person's name.
+
+    Returns:
+        Tuple of (encodings, names) where encodings is a list of face encodings
+        and names is a list of corresponding person names.
+    """
     encodings = []
     names = []
     for person_name in os.listdir(directory):
@@ -26,6 +39,18 @@ def encode_faces_in_directory(directory):
 
 
 def recognize_faces_in_frame(frame, known_encodings, known_names):
+    """
+    Recognize faces in a video frame.
+
+    Args:
+        frame: OpenCV BGR format video frame
+        known_encodings: List of known face encodings
+        known_names: List of names corresponding to known encodings
+
+    Returns:
+        List of recognized names for each face found in frame.
+        Returns "Unknown" for unrecognized faces.
+    """
     rgb_frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
     face_locations = face_recognition.face_locations(rgb_frame, model=DETECTION_MODEL)
     face_encodings = face_recognition.face_encodings(rgb_frame, face_locations)

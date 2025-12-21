@@ -1,3 +1,10 @@
+"""
+Configuration settings for Face-Recon Security System.
+
+This module contains all configuration variables including paths,
+face recognition settings, and other system parameters.
+"""
+
 import os
 
 # Base directories
@@ -9,8 +16,8 @@ ENCODINGS_PATH = os.path.join(DATA_DIR, "encodings.pickle")
 DATABASE_PATH = os.path.join(BASE_DIR, "backend", "face_recon.db")  # SQLite DB file
 
 # Face recognition settings
-DETECTION_MODEL = "hog"  # or "cnn"
-FACE_TOLERANCE = 0.6
+DETECTION_MODEL = "hog"  # or "cnn" for GPU-accelerated detection
+FACE_TOLERANCE = 0.6  # Lower is more strict (0.0-1.0)
 
 # Other config
 LOG_FILE = os.path.join(BASE_DIR, "logs", "app.log")
