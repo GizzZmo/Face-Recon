@@ -6,6 +6,10 @@ set -e
 echo "🔍 Running CI Pipeline Validation..."
 echo "======================================"
 
+# Set PYTHONPATH to project root to allow imports from src module
+export PYTHONPATH="${PYTHONPATH:+${PYTHONPATH}:}$(pwd)"
+echo "📌 PYTHONPATH set to: $PYTHONPATH"
+
 # 1. Test structure validation
 echo "📁 Validating project structure..."
 if [ ! -f ".github/workflows/ci-comprehensive.yml" ]; then
