@@ -7,6 +7,7 @@ import sys
 
 # Ensure the parent directory is in the path for imports to work
 # This allows the module to be imported from various contexts
+# Go up three levels: src/utils/face_utils.py -> src/utils -> src -> project_root
 parent_dir = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 if parent_dir not in sys.path:
     sys.path.insert(0, parent_dir)
