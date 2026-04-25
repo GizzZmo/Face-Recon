@@ -15,8 +15,8 @@ if parent_dir not in sys.path:
     sys.path.insert(0, parent_dir)
 
 import cv2
-import face_recognition
 
+import face_recognition
 from src.config import DETECTION_MODEL, FACE_TOLERANCE
 
 
