@@ -1,0 +1,121 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="520" viewBox="0 0 900 520">
+  <!-- Background -->
+  <rect width="900" height="520" fill="#0d1117"/>
+  <!-- Top bar -->
+  <rect width="900" height="48" fill="#161b22"/>
+  <rect x="20" y="14" width="16" height="16" rx="8" fill="#6e7681"/>
+  <text x="46" y="26" font-family="monospace" font-size="13" fill="#c9d1d9">GizzZmo / Face-Recon</text>
+  <text x="400" y="26" font-family="monospace" font-size="13" fill="#6e7681">Actions</text>
+  <!-- Workflow header -->
+  <rect x="20" y="60" width="860" height="48" rx="6" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+  <circle cx="46" cy="84" r="10" fill="#3fb950"/>
+  <text x="50" cy="84" font-family="monospace" font-size="13" fill="#c9d1d9" text-anchor="middle" dominant-baseline="middle">✓</text>
+  <text x="66" y="80" font-family="-apple-system,sans-serif" font-size="14" fill="#c9d1d9" font-weight="600">Comprehensive CI/CD Pipeline</text>
+  <text x="66" y="98" font-family="-apple-system,sans-serif" font-size="12" fill="#6e7681">All jobs passed · 5 minutes 32 seconds</text>
+  <rect x="760" y="68" width="110" height="28" rx="6" fill="#238636" stroke="#2ea043" stroke-width="1"/>
+  <text x="815" y="86" font-family="-apple-system,sans-serif" font-size="12" fill="#fff" text-anchor="middle">✓ Success</text>
+
+  <!-- Job cards row 1 -->
+  <!-- Code Quality -->
+  <rect x="20" y="124" width="168" height="80" rx="6" fill="#161b22" stroke="#238636" stroke-width="1.5"/>
+  <text x="30" y="145" font-family="-apple-system,sans-serif" font-size="11" fill="#3fb950">✓ passed</text>
+  <text x="30" y="163" font-family="-apple-system,sans-serif" font-size="12" fill="#c9d1d9" font-weight="600">Code Quality</text>
+  <text x="30" y="179" font-family="-apple-system,sans-serif" font-size="11" fill="#6e7681">&amp; Linting</text>
+  <text x="30" y="196" font-family="-apple-system,sans-serif" font-size="10" fill="#6e7681">1m 14s · 5 runners</text>
+
+  <!-- Testing -->
+  <rect x="202" y="124" width="168" height="80" rx="6" fill="#161b22" stroke="#238636" stroke-width="1.5"/>
+  <text x="212" y="145" font-family="-apple-system,sans-serif" font-size="11" fill="#3fb950">✓ passed</text>
+  <text x="212" y="163" font-family="-apple-system,sans-serif" font-size="12" fill="#c9d1d9" font-weight="600">Testing</text>
+  <text x="212" y="179" font-family="-apple-system,sans-serif" font-size="11" fill="#6e7681">Matrix: 3 OS × 5 Python</text>
+  <text x="212" y="196" font-family="-apple-system,sans-serif" font-size="10" fill="#6e7681">3m 22s · 15 runners</text>
+
+  <!-- Build -->
+  <rect x="384" y="124" width="168" height="80" rx="6" fill="#161b22" stroke="#238636" stroke-width="1.5"/>
+  <text x="394" y="145" font-family="-apple-system,sans-serif" font-size="11" fill="#3fb950">✓ passed</text>
+  <text x="394" y="163" font-family="-apple-system,sans-serif" font-size="12" fill="#c9d1d9" font-weight="600">Build &amp; Package</text>
+  <text x="394" y="179" font-family="-apple-system,sans-serif" font-size="11" fill="#6e7681">Source distribution</text>
+  <text x="394" y="196" font-family="-apple-system,sans-serif" font-size="10" fill="#6e7681">0m 48s · 1 runner</text>
+
+  <!-- Security -->
+  <rect x="566" y="124" width="168" height="80" rx="6" fill="#161b22" stroke="#238636" stroke-width="1.5"/>
+  <text x="576" y="145" font-family="-apple-system,sans-serif" font-size="11" fill="#3fb950">✓ passed</text>
+  <text x="576" y="163" font-family="-apple-system,sans-serif" font-size="12" fill="#c9d1d9" font-weight="600">Security</text>
+  <text x="576" y="179" font-family="-apple-system,sans-serif" font-size="11" fill="#6e7681">&amp; Compliance</text>
+  <text x="576" y="196" font-family="-apple-system,sans-serif" font-size="10" fill="#6e7681">1m 05s · 1 runner</text>
+
+  <!-- Deploy -->
+  <rect x="748" y="124" width="130" height="80" rx="6" fill="#161b22" stroke="#238636" stroke-width="1.5"/>
+  <text x="758" y="145" font-family="-apple-system,sans-serif" font-size="11" fill="#3fb950">✓ passed</text>
+  <text x="758" y="163" font-family="-apple-system,sans-serif" font-size="12" fill="#c9d1d9" font-weight="600">Deploy</text>
+  <text x="758" y="179" font-family="-apple-system,sans-serif" font-size="11" fill="#6e7681">Production</text>
+  <text x="758" y="196" font-family="-apple-system,sans-serif" font-size="10" fill="#6e7681">0m 31s · 1 runner</text>
+
+  <!-- Step detail panel -->
+  <rect x="20" y="220" width="860" height="280" rx="6" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+  <text x="36" y="244" font-family="-apple-system,sans-serif" font-size="13" fill="#c9d1d9" font-weight="600">Code Quality &amp; Linting (3.11) — Steps</text>
+
+  <!-- Steps -->
+  <!-- Step 1 -->
+  <circle cx="38" cy="268" r="7" fill="#3fb950"/>
+  <text x="38" y="272" font-family="monospace" font-size="9" fill="#fff" text-anchor="middle">✓</text>
+  <text x="54" y="272" font-family="-apple-system,sans-serif" font-size="12" fill="#c9d1d9">Checkout repository</text>
+  <text x="820" y="272" font-family="-apple-system,sans-serif" font-size="11" fill="#6e7681">2s</text>
+
+  <!-- Step 2 -->
+  <circle cx="38" cy="296" r="7" fill="#3fb950"/>
+  <text x="38" y="300" font-family="monospace" font-size="9" fill="#fff" text-anchor="middle">✓</text>
+  <text x="54" y="300" font-family="-apple-system,sans-serif" font-size="12" fill="#c9d1d9">Set up Python 3.11</text>
+  <text x="820" y="300" font-family="-apple-system,sans-serif" font-size="11" fill="#6e7681">4s</text>
+
+  <!-- Step 3 -->
+  <circle cx="38" cy="324" r="7" fill="#3fb950"/>
+  <text x="38" y="328" font-family="monospace" font-size="9" fill="#fff" text-anchor="middle">✓</text>
+  <text x="54" y="328" font-family="-apple-system,sans-serif" font-size="12" fill="#c9d1d9">Cache pip dependencies</text>
+  <text x="820" y="328" font-family="-apple-system,sans-serif" font-size="11" fill="#6e7681">1s</text>
+
+  <!-- Step 4 -->
+  <circle cx="38" cy="352" r="7" fill="#3fb950"/>
+  <text x="38" y="356" font-family="monospace" font-size="9" fill="#fff" text-anchor="middle">✓</text>
+  <text x="54" y="352" font-family="-apple-system,sans-serif" font-size="12" fill="#c9d1d9">Install dependencies</text>
+  <text x="820" y="352" font-family="-apple-system,sans-serif" font-size="11" fill="#6e7681">18s</text>
+
+  <!-- Step 5 -->
+  <circle cx="38" cy="380" r="7" fill="#3fb950"/>
+  <text x="38" y="384" font-family="monospace" font-size="9" fill="#fff" text-anchor="middle">✓</text>
+  <text x="54" y="380" font-family="-apple-system,sans-serif" font-size="12" fill="#c9d1d9">Run Black code formatter</text>
+  <text x="820" y="380" font-family="-apple-system,sans-serif" font-size="11" fill="#6e7681">3s</text>
+
+  <!-- Step 6 -->
+  <circle cx="38" cy="408" r="7" fill="#3fb950"/>
+  <text x="38" y="412" font-family="monospace" font-size="9" fill="#fff" text-anchor="middle">✓</text>
+  <text x="54" y="408" font-family="-apple-system,sans-serif" font-size="12" fill="#c9d1d9">Import sorting check with isort</text>
+  <text x="820" y="408" font-family="-apple-system,sans-serif" font-size="11" fill="#6e7681">2s</text>
+
+  <!-- Step 7 -->
+  <circle cx="38" cy="436" r="7" fill="#3fb950"/>
+  <text x="38" y="440" font-family="monospace" font-size="9" fill="#fff" text-anchor="middle">✓</text>
+  <text x="54" y="436" font-family="-apple-system,sans-serif" font-size="12" fill="#c9d1d9">Lint with flake8</text>
+  <text x="820" y="436" font-family="-apple-system,sans-serif" font-size="11" fill="#6e7681">5s</text>
+
+  <!-- Step 8 -->
+  <circle cx="38" cy="464" r="7" fill="#3fb950"/>
+  <text x="38" y="468" font-family="monospace" font-size="9" fill="#fff" text-anchor="middle">✓</text>
+  <text x="54" y="464" font-family="-apple-system,sans-serif" font-size="12" fill="#c9d1d9">Security check with bandit</text>
+  <text x="820" y="464" font-family="-apple-system,sans-serif" font-size="11" fill="#6e7681">8s</text>
+
+  <!-- Separator lines -->
+  <line x1="36" y1="280" x2="36" y2="290" stroke="#30363d" stroke-width="1"/>
+  <line x1="36" y1="308" x2="36" y2="318" stroke="#30363d" stroke-width="1"/>
+  <line x1="36" y1="336" x2="36" y2="346" stroke="#30363d" stroke-width="1"/>
+  <line x1="36" y1="364" x2="36" y2="374" stroke="#30363d" stroke-width="1"/>
+  <line x1="36" y1="392" x2="36" y2="402" stroke="#30363d" stroke-width="1"/>
+  <line x1="36" y1="420" x2="36" y2="430" stroke="#30363d" stroke-width="1"/>
+  <line x1="36" y1="448" x2="36" y2="458" stroke="#30363d" stroke-width="1"/>
+
+  <!-- Bottom status bar -->
+  <rect x="20" y="508" width="860" height="4" rx="2" fill="#238636"/>
+
+  <!-- Title at bottom -->
+  <text x="450" y="516" font-family="-apple-system,sans-serif" font-size="10" fill="#6e7681" text-anchor="middle">Face-Recon · Comprehensive CI/CD Pipeline · All checks passed</text>
+</svg>

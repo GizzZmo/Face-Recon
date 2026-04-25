@@ -1,0 +1,158 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="560" viewBox="0 0 900 560">
+  <!-- Background -->
+  <rect width="900" height="560" fill="#0f172a"/>
+
+  <!-- Sidebar -->
+  <rect width="220" height="560" fill="#1e293b"/>
+  <text x="30" y="38" font-family="-apple-system,sans-serif" font-size="16" fill="#38bdf8" font-weight="700">🔒 Face-Recon</text>
+  <text x="30" y="58" font-family="-apple-system,sans-serif" font-size="10" fill="#64748b">Security System</text>
+
+  <rect x="10" y="70" width="200" height="2" rx="1" fill="#334155"/>
+
+  <!-- Nav items -->
+  <rect x="10" y="80" width="200" height="36" rx="6" fill="#0f172a"/>
+  <text x="30" y="103" font-family="-apple-system,sans-serif" font-size="13" fill="#38bdf8">📊  Dashboard</text>
+
+  <text x="30" y="135" font-family="-apple-system,sans-serif" font-size="13" fill="#94a3b8">👤  Face Database</text>
+  <text x="30" y="163" font-family="-apple-system,sans-serif" font-size="13" fill="#94a3b8">📹  Live Feed</text>
+  <text x="30" y="191" font-family="-apple-system,sans-serif" font-size="13" fill="#94a3b8">📜  Access Logs</text>
+  <text x="30" y="219" font-family="-apple-system,sans-serif" font-size="13" fill="#94a3b8">⛓️  Blockchain</text>
+  <text x="30" y="247" font-family="-apple-system,sans-serif" font-size="13" fill="#94a3b8">⚙️  Settings</text>
+
+  <rect x="10" y="258" width="200" height="1" fill="#334155"/>
+
+  <!-- Status indicator -->
+  <circle cx="24" cy="290" r="5" fill="#22c55e"/>
+  <text x="36" y="294" font-family="-apple-system,sans-serif" font-size="12" fill="#22c55e">System Online</text>
+  <text x="24" y="314" font-family="-apple-system,sans-serif" font-size="10" fill="#64748b">Uptime: 14d 6h 32m</text>
+  <text x="24" y="330" font-family="-apple-system,sans-serif" font-size="10" fill="#64748b">CPU: 12%  RAM: 38%</text>
+
+  <!-- Main content area -->
+  <!-- Header -->
+  <rect x="220" y="0" width="680" height="56" fill="#1e293b"/>
+  <text x="240" y="32" font-family="-apple-system,sans-serif" font-size="18" fill="#f1f5f9" font-weight="600">Security Dashboard</text>
+  <text x="240" y="48" font-family="-apple-system,sans-serif" font-size="11" fill="#64748b">Real-time monitoring and access management</text>
+  <rect x="750" y="12" width="130" height="30" rx="6" fill="#0ea5e9"/>
+  <text x="815" y="31" font-family="-apple-system,sans-serif" font-size="12" fill="#fff" text-anchor="middle" font-weight="600">+ Enroll Face</text>
+
+  <!-- Stat cards -->
+  <!-- Card 1: Total accesses today -->
+  <rect x="234" y="68" width="148" height="80" rx="8" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+  <text x="250" y="89" font-family="-apple-system,sans-serif" font-size="10" fill="#64748b">ACCESSES TODAY</text>
+  <text x="250" y="118" font-family="-apple-system,sans-serif" font-size="28" fill="#f1f5f9" font-weight="700">247</text>
+  <text x="250" y="138" font-family="-apple-system,sans-serif" font-size="10" fill="#22c55e">▲ 12% from yesterday</text>
+
+  <!-- Card 2: Recognized -->
+  <rect x="394" y="68" width="148" height="80" rx="8" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+  <text x="410" y="89" font-family="-apple-system,sans-serif" font-size="10" fill="#64748b">RECOGNIZED</text>
+  <text x="410" y="118" font-family="-apple-system,sans-serif" font-size="28" fill="#22c55e" font-weight="700">231</text>
+  <text x="410" y="138" font-family="-apple-system,sans-serif" font-size="10" fill="#64748b">93.5% success rate</text>
+
+  <!-- Card 3: Unknown -->
+  <rect x="554" y="68" width="148" height="80" rx="8" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+  <text x="570" y="89" font-family="-apple-system,sans-serif" font-size="10" fill="#64748b">UNKNOWN / DENIED</text>
+  <text x="570" y="118" font-family="-apple-system,sans-serif" font-size="28" fill="#ef4444" font-weight="700">16</text>
+  <text x="570" y="138" font-family="-apple-system,sans-serif" font-size="10" fill="#64748b">6.5% — alert sent</text>
+
+  <!-- Card 4: Enrolled faces -->
+  <rect x="714" y="68" width="148" height="80" rx="8" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+  <text x="730" y="89" font-family="-apple-system,sans-serif" font-size="10" fill="#64748b">ENROLLED FACES</text>
+  <text x="730" y="118" font-family="-apple-system,sans-serif" font-size="28" fill="#38bdf8" font-weight="700">48</text>
+  <text x="730" y="138" font-family="-apple-system,sans-serif" font-size="10" fill="#64748b">+3 this week</text>
+
+  <!-- Live Camera Feed panel -->
+  <rect x="234" y="162" width="320" height="210" rx="8" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+  <text x="250" y="184" font-family="-apple-system,sans-serif" font-size="13" fill="#f1f5f9" font-weight="600">📹 Live Camera Feed</text>
+  <rect x="234" y="192" width="320" height="1" fill="#334155"/>
+  <!-- Camera frame -->
+  <rect x="248" y="200" width="292" height="160" rx="4" fill="#0f172a"/>
+  <!-- Simulated video frame -->
+  <rect x="248" y="200" width="292" height="160" rx="4" fill="#1a2535"/>
+  <!-- Face detection box -->
+  <rect x="320" y="218" width="80" height="100" rx="2" fill="none" stroke="#22c55e" stroke-width="2" stroke-dasharray="4,2"/>
+  <text x="320" y="213" font-family="monospace" font-size="9" fill="#22c55e">Alice Johnson</text>
+  <text x="320" y="326" font-family="monospace" font-size="8" fill="#22c55e">conf: 94.2%</text>
+  <!-- Person silhouette -->
+  <ellipse cx="360" cy="248" rx="22" ry="24" fill="#2d3f55"/>
+  <rect x="334" y="272" width="52" height="46" rx="10" fill="#2d3f55"/>
+  <!-- REC indicator -->
+  <circle cx="258" cy="208" r="5" fill="#ef4444"/>
+  <text x="268" y="212" font-family="monospace" font-size="9" fill="#ef4444">REC</text>
+  <text x="490" y="212" font-family="monospace" font-size="9" fill="#64748b">HD · 30fps</text>
+
+  <!-- Recent Access Log panel -->
+  <rect x="566" y="162" width="296" height="210" rx="8" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+  <text x="582" y="184" font-family="-apple-system,sans-serif" font-size="13" fill="#f1f5f9" font-weight="600">📜 Recent Access Events</text>
+  <rect x="566" y="192" width="296" height="1" fill="#334155"/>
+
+  <!-- Log entries -->
+  <circle cx="584" cy="214" r="4" fill="#22c55e"/>
+  <text x="596" y="218" font-family="-apple-system,sans-serif" font-size="11" fill="#c9d1d9">Alice Johnson</text>
+  <text x="596" y="230" font-family="-apple-system,sans-serif" font-size="10" fill="#64748b">Main Entrance · 09:42:11</text>
+  <text x="820" y="218" font-family="monospace" font-size="9" fill="#22c55e">GRANTED</text>
+
+  <rect x="566" y="238" width="296" height="1" fill="#1e293b" stroke="#334155" stroke-width="0.5"/>
+
+  <circle cx="584" cy="254" r="4" fill="#22c55e"/>
+  <text x="596" y="258" font-family="-apple-system,sans-serif" font-size="11" fill="#c9d1d9">Bob Martinez</text>
+  <text x="596" y="270" font-family="-apple-system,sans-serif" font-size="10" fill="#64748b">Server Room · 09:38:55</text>
+  <text x="820" y="258" font-family="monospace" font-size="9" fill="#22c55e">GRANTED</text>
+
+  <rect x="566" y="278" width="296" height="1" fill="#1e293b" stroke="#334155" stroke-width="0.5"/>
+
+  <circle cx="584" cy="294" r="4" fill="#ef4444"/>
+  <text x="596" y="298" font-family="-apple-system,sans-serif" font-size="11" fill="#c9d1d9">Unknown</text>
+  <text x="596" y="310" font-family="-apple-system,sans-serif" font-size="10" fill="#64748b">Back Door · 09:35:02</text>
+  <text x="820" y="298" font-family="monospace" font-size="9" fill="#ef4444">DENIED</text>
+
+  <rect x="566" y="318" width="296" height="1" fill="#1e293b" stroke="#334155" stroke-width="0.5"/>
+
+  <circle cx="584" cy="334" r="4" fill="#22c55e"/>
+  <text x="596" y="338" font-family="-apple-system,sans-serif" font-size="11" fill="#c9d1d9">Carol Smith</text>
+  <text x="596" y="350" font-family="-apple-system,sans-serif" font-size="10" fill="#64748b">Main Entrance · 09:31:47</text>
+  <text x="820" y="338" font-family="monospace" font-size="9" fill="#22c55e">GRANTED</text>
+
+  <rect x="566" y="358" width="296" height="1" fill="#334155" stroke-width="0.5"/>
+  <text x="700" y="370" font-family="-apple-system,sans-serif" font-size="10" fill="#38bdf8" text-anchor="middle">View all logs →</text>
+
+  <!-- Analytics chart area -->
+  <rect x="234" y="384" width="628" height="160" rx="8" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+  <text x="250" y="406" font-family="-apple-system,sans-serif" font-size="13" fill="#f1f5f9" font-weight="600">📈 Access Activity — Last 7 Days</text>
+  <rect x="234" y="414" width="628" height="1" fill="#334155"/>
+
+  <!-- Chart bars -->
+  <rect x="264" y="475" width="40" height="60" rx="3" fill="#0ea5e9" opacity="0.8"/>
+  <text x="284" y="495" font-family="monospace" font-size="9" fill="#0f172a" text-anchor="middle">182</text>
+  <text x="284" y="546" font-family="-apple-system,sans-serif" font-size="9" fill="#64748b" text-anchor="middle">Mon</text>
+
+  <rect x="330" y="468" width="40" height="67" rx="3" fill="#0ea5e9" opacity="0.8"/>
+  <text x="350" y="490" font-family="monospace" font-size="9" fill="#0f172a" text-anchor="middle">201</text>
+  <text x="350" y="546" font-family="-apple-system,sans-serif" font-size="9" fill="#64748b" text-anchor="middle">Tue</text>
+
+  <rect x="396" y="455" width="40" height="80" rx="3" fill="#0ea5e9" opacity="0.8"/>
+  <text x="416" y="478" font-family="monospace" font-size="9" fill="#0f172a" text-anchor="middle">219</text>
+  <text x="416" y="546" font-family="-apple-system,sans-serif" font-size="9" fill="#64748b" text-anchor="middle">Wed</text>
+
+  <rect x="462" y="480" width="40" height="55" rx="3" fill="#0ea5e9" opacity="0.8"/>
+  <text x="482" y="499" font-family="monospace" font-size="9" fill="#0f172a" text-anchor="middle">176</text>
+  <text x="482" y="546" font-family="-apple-system,sans-serif" font-size="9" fill="#64748b" text-anchor="middle">Thu</text>
+
+  <rect x="528" y="463" width="40" height="72" rx="3" fill="#0ea5e9" opacity="0.8"/>
+  <text x="548" y="484" font-family="monospace" font-size="9" fill="#0f172a" text-anchor="middle">210</text>
+  <text x="548" y="546" font-family="-apple-system,sans-serif" font-size="9" fill="#64748b" text-anchor="middle">Fri</text>
+
+  <rect x="594" y="500" width="40" height="35" rx="3" fill="#38bdf8" opacity="0.7"/>
+  <text x="614" y="515" font-family="monospace" font-size="9" fill="#0f172a" text-anchor="middle">143</text>
+  <text x="614" y="546" font-family="-apple-system,sans-serif" font-size="9" fill="#64748b" text-anchor="middle">Sat</text>
+
+  <rect x="660" y="497" width="40" height="38" rx="3" fill="#38bdf8" opacity="0.7"/>
+  <text x="680" y="512" font-family="monospace" font-size="9" fill="#0f172a" text-anchor="middle">98</text>
+  <text x="680" y="546" font-family="-apple-system,sans-serif" font-size="9" fill="#64748b" text-anchor="middle">Sun</text>
+
+  <rect x="726" y="450" width="40" height="85" rx="3" fill="#22c55e" opacity="0.9"/>
+  <text x="746" y="469" font-family="monospace" font-size="9" fill="#0f172a" text-anchor="middle">247</text>
+  <text x="746" y="546" font-family="-apple-system,sans-serif" font-size="9" fill="#38bdf8" text-anchor="middle" font-weight="600">Today</text>
+
+  <!-- Chart baseline -->
+  <line x1="248" y1="535" x2="848" y2="535" stroke="#334155" stroke-width="1"/>
+</svg>
