@@ -104,9 +104,7 @@ try:
 except ImportError as e:
     print(f"FAILED: {{e}}")
     sys.exit(1)
-""".format(
-        base_dir=base_dir
-    )
+""".format(base_dir=base_dir)
 
     with tempfile.NamedTemporaryFile(mode="w", suffix=".py", delete=False) as f:
         f.write(test_script)
@@ -163,9 +161,7 @@ if test_passed:
 else:
     print("FAILED: No import error but test_passed not set")
     sys.exit(1)
-""".format(
-        base_dir=base_dir
-    )
+""".format(base_dir=base_dir)
 
     with tempfile.NamedTemporaryFile(mode="w", suffix=".py", delete=False) as f:
         f.write(test_script)
