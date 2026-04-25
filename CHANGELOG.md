@@ -8,13 +8,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Added
-- Comprehensive docstrings for all Python modules
-- Function-level documentation with type hints and examples
-- CONTRIBUTING.md guide for developers
-- CHANGELOG.md for tracking project changes
-- Version pinning in requirements.txt for security and stability
-- Better error handling with try-except blocks
-- Input validation in API endpoints
+- `backend/server.py` – automatic database initialisation on startup (`init_db()`)
+- `backend/server.py` – `/stats` endpoint returning per-user access statistics
+- `backend/server.py` – `/logs` endpoint with configurable `?limit=` parameter
+- `backend/server.py` – `/users` GET/POST/DELETE endpoints for user management
+- `backend/server.py` – `/health` endpoint for uptime monitoring
+- `backend/server.py` – access events are now logged to `access_log` table with `method` field
+- `backend/database.sql` – added `UNIQUE` constraint on `users.name`; added `method` column to `access_log`
+- `src/utils/liveness.py` – liveness detection module with EAR blink detection and Laplacian sharpness anti-spoofing
+- `tests/test_backend_api.py` – 22 integration tests covering all Flask API endpoints
+- `tests/test_liveness.py` – unit tests for liveness detection utilities
+- `Dockerfile` – production-ready Docker image for the backend
+- `docker-compose.yml` – multi-service dev stack (backend + Nginx frontend)
+- Frontend dashboard (`frontend/index.html`, `app.js`, `styles.css`) – fully redesigned with access request form, live stats table, access log table, user management, health badge, and 30-second auto-refresh
 
 ### Changed
 - Standardized all code comments and strings to English
@@ -85,18 +91,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## Future Plans
 
 ### Planned Features
-- [ ] Enhanced liveness detection for face recognition
+- [x] Enhanced liveness detection for face recognition (`src/utils/liveness.py`)
 - [ ] Multi-language support in documentation
-- [ ] Docker containerization
+- [x] Docker containerization (`Dockerfile` + `docker-compose.yml`)
 - [ ] Kubernetes deployment configuration
 - [ ] Enhanced mobile app integration
-- [ ] Real-time dashboard improvements
+- [ ] Real-time dashboard improvements (partial – dashboard rebuilt)
 - [ ] Advanced analytics and reporting
 - [ ] Integration with more smart home platforms
 
 ### Planned Improvements
+- [x] Add integration tests (22 API tests in `tests/test_backend_api.py`)
 - [ ] Increase test coverage to 90%+
-- [ ] Add integration tests
 - [ ] Add performance benchmarks
 - [ ] Create video tutorials
 - [ ] Expand API documentation

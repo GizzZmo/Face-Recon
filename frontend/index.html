@@ -2,13 +2,77 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Access Control Dashboard</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Face-Recon Security Dashboard</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>Welcome to the Security System Dashboard</h1>
-    <div id="stats"></div>
-    <button onclick="requestAccess()">Request Access</button>
+    <header>
+        <h1>&#128274; Face-Recon Security Dashboard</h1>
+        <span id="health-badge" class="badge badge-unknown">Connecting…</span>
+    </header>
+
+    <main>
+        <!-- Access Request -->
+        <section class="card" id="access-section">
+            <h2>Request Access</h2>
+            <div class="form-row">
+                <input type="text" id="username-input" placeholder="Username" aria-label="Username" />
+                <select id="method-select" aria-label="Authentication method">
+                    <option value="face">Face</option>
+                    <option value="voice">Voice</option>
+                    <option value="nfc">NFC</option>
+                    <option value="rfid">RFID</option>
+                </select>
+                <button onclick="requestAccess()">Check Access</button>
+            </div>
+            <div id="access-result" class="result-box hidden"></div>
+        </section>
+
+        <!-- Statistics -->
+        <section class="card" id="stats-section">
+            <h2>Access Statistics</h2>
+            <button class="btn-secondary" onclick="fetchStats()">&#8635; Refresh</button>
+            <div id="stats-container">
+                <p class="muted">Loading…</p>
+            </div>
+        </section>
+
+        <!-- Recent Logs -->
+        <section class="card" id="logs-section">
+            <h2>Recent Access Log</h2>
+            <div class="log-controls">
+                <label for="log-limit">Show</label>
+                <select id="log-limit" onchange="fetchLogs()">
+                    <option value="20">20</option>
+                    <option value="50" selected>50</option>
+                    <option value="100">100</option>
+                </select>
+                <span>entries</span>
+                <button class="btn-secondary" onclick="fetchLogs()">&#8635; Refresh</button>
+            </div>
+            <div id="logs-container">
+                <p class="muted">Loading…</p>
+            </div>
+        </section>
+
+        <!-- User Management -->
+        <section class="card" id="users-section">
+            <h2>Registered Users</h2>
+            <div class="form-row">
+                <input type="text" id="new-username" placeholder="New username" aria-label="New username" />
+                <button onclick="addUser()">&#43; Add User</button>
+            </div>
+            <div id="users-container">
+                <p class="muted">Loading…</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>Face-Recon Security System &mdash; <a href="https://github.com/GizzZmo/Face-Recon" target="_blank" rel="noopener">GitHub</a></p>
+    </footer>
+
     <script src="app.js"></script>
 </body>
 </html>

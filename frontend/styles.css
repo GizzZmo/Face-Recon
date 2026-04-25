@@ -1,33 +1,197 @@
+/* =========================================================
+   Face-Recon Dashboard – Styles
+   ========================================================= */
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
 body {
     font-family: Arial, sans-serif;
-    margin: 2em;
-    background: #f7f9fc;
-    color: #222;
+    margin: 0;
+    background: #f0f4f8;
+    color: #1a1a2e;
 }
 
-h1 {
-    color: #1976d2;
+/* ----- Header ----- */
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #1565c0;
+    color: #fff;
+    padding: 1rem 2rem;
+    gap: 1rem;
 }
 
+header h1 {
+    margin: 0;
+    font-size: 1.4rem;
+}
+
+/* ----- Status badge ----- */
+.badge {
+    padding: 0.3rem 0.8rem;
+    border-radius: 1rem;
+    font-size: 0.85rem;
+    font-weight: bold;
+    white-space: nowrap;
+}
+.badge-ok      { background: #2e7d32; color: #fff; }
+.badge-error   { background: #c62828; color: #fff; }
+.badge-unknown { background: #616161; color: #fff; }
+
+/* ----- Main layout ----- */
+main {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(480px, 1fr));
+    gap: 1.5rem;
+    padding: 1.5rem 2rem;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* ----- Cards ----- */
+.card {
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    padding: 1.5rem;
+}
+
+.card h2 {
+    margin: 0 0 1rem;
+    font-size: 1.1rem;
+    color: #1565c0;
+    border-bottom: 2px solid #e3f2fd;
+    padding-bottom: 0.5rem;
+}
+
+/* ----- Forms ----- */
+.form-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+input[type="text"] {
+    flex: 1;
+    min-width: 150px;
+    padding: 0.5rem 0.8rem;
+    border: 1px solid #bdbdbd;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+select {
+    padding: 0.5rem 0.8rem;
+    border: 1px solid #bdbdbd;
+    border-radius: 4px;
+    font-size: 1rem;
+    background: #fff;
+}
+
+/* ----- Buttons ----- */
 button {
-    background: #1976d2;
-    color: white;
-    padding: 10px 20px;
+    background: #1565c0;
+    color: #fff;
+    padding: 0.5rem 1.2rem;
     border: none;
-    margin-top: 1em;
-    font-size: 1em;
+    font-size: 1rem;
     cursor: pointer;
     border-radius: 4px;
-    transition: background 0.2s;
+    transition: background 0.15s;
+    white-space: nowrap;
 }
+button:hover { background: #0d47a1; }
 
-button:hover {
-    background: #1565c0;
+.btn-secondary {
+    background: #546e7a;
+    margin-bottom: 0.8rem;
 }
+.btn-secondary:hover { background: #37474f; }
 
-#stats {
-    margin: 1em 0;
-    padding: 1em;
-    background: #e3f2fd;
+.btn-danger {
+    background: #c62828;
+    padding: 0.25rem 0.7rem;
+    font-size: 0.85rem;
+}
+.btn-danger:hover { background: #b71c1c; }
+
+/* ----- Result box ----- */
+.result-box {
+    margin-top: 0.8rem;
+    padding: 0.6rem 1rem;
     border-radius: 4px;
+    font-weight: bold;
 }
+.result-box.hidden   { display: none; }
+.result-ok           { background: #e8f5e9; color: #2e7d32; }
+.result-denied       { background: #ffebee; color: #b71c1c; }
+.result-error        { background: #fff3e0; color: #e65100; }
+.result-warn         { background: #fffde7; color: #f57f17; }
+
+/* ----- Tables ----- */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+    margin-top: 0.5rem;
+}
+th {
+    text-align: left;
+    background: #e3f2fd;
+    padding: 0.5rem 0.6rem;
+    font-weight: bold;
+}
+td { padding: 0.45rem 0.6rem; border-bottom: 1px solid #f0f4f8; }
+tr:last-child td { border-bottom: none; }
+tr:hover td { background: #f5f9ff; }
+
+.text-ok     { color: #2e7d32; font-weight: bold; }
+.text-denied { color: #b71c1c; font-weight: bold; }
+
+/* ----- User list ----- */
+.user-list {
+    list-style: none;
+    margin: 0.5rem 0 0;
+    padding: 0;
+}
+.user-list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.4rem 0.2rem;
+    border-bottom: 1px solid #f0f4f8;
+}
+.user-list li:last-child { border-bottom: none; }
+
+/* ----- Log controls ----- */
+.log-controls {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.8rem;
+    flex-wrap: wrap;
+}
+
+/* ----- Misc ----- */
+.muted { color: #757575; }
+.error { color: #b71c1c; }
+
+/* ----- Footer ----- */
+footer {
+    text-align: center;
+    padding: 1.5rem;
+    font-size: 0.85rem;
+    color: #757575;
+}
+footer a { color: #1565c0; }
+
+/* ----- Responsive ----- */
+@media (max-width: 600px) {
+    main { grid-template-columns: 1fr; padding: 1rem; }
+    header { flex-direction: column; align-items: flex-start; }
+}
+
