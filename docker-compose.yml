@@ -1,0 +1,48 @@
+# docker-compose.yml – Face-Recon development stack
+#
+# Usage:
+#   docker compose up          # start all services
+#   docker compose up --build  # rebuild images first
+#   docker compose down        # stop and remove containers
+
+version: "3.9"
+
+services:
+  # -----------------------------------------------------------------------
+  # Backend – Flask REST API
+  # -----------------------------------------------------------------------
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: face-recon-backend
+    ports:
+      - "5000:5000"
+    volumes:
+      # Persist the SQLite database and face data between restarts
+      - face_data:/app/data
+      - face_logs:/app/logs
+    environment:
+      FLASK_ENV: development
+    restart: unless-stopped
+
+  # -----------------------------------------------------------------------
+  # Frontend – static files served via Nginx
+  # -----------------------------------------------------------------------
+  frontend:
+    image: nginx:alpine
+    container_name: face-recon-frontend
+    ports:
+      - "8080:80"
+    volumes:
+      - ./frontend:/usr/share/nginx/html:ro
+    depends_on:
+      - backend
+    restart: unless-stopped
+
+# -----------------------------------------------------------------------
+# Named volumes
+# -----------------------------------------------------------------------
+volumes:
+  face_data:
+  face_logs:
