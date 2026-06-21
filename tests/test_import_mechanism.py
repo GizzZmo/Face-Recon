@@ -177,7 +177,10 @@ else:
         )
 
         assert result.returncode == 0, f"Fallback test failed: {result.stderr}"
-        assert "SUCCESS:" in result.stdout, f"Unexpected output: {result.stdout}"
+        assert (
+            "SUCCESS: Direct import works" in result.stdout
+            or "SUCCESS: Fallback import mechanism works" in result.stdout
+        ), f"Unexpected output: {result.stdout}"
 
         print("✓ Import fallback mechanism works correctly")
     finally:
