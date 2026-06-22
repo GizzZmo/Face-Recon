@@ -157,16 +157,14 @@ def get_stats():
     """
     conn = get_db_connection()
     try:
-        rows = conn.execute(
-            """
+        rows = conn.execute("""
             SELECT user,
                    COUNT(*) AS total,
                    SUM(CASE WHEN access_granted THEN 1 ELSE 0 END) AS granted
             FROM access_log
             GROUP BY user
             ORDER BY total DESC
-            """
-        ).fetchall()
+            """).fetchall()
         return jsonify([[row["user"], row["total"], row["granted"]] for row in rows])
     except sqlite3.Error as exc:
         _logger.error("Database error in get_stats: %s", exc)
