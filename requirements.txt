@@ -15,7 +15,7 @@ scikit-learn>=1.0.0,<2.0.0
 # Development tools
 isort[colors]>=5.10.0,<6.0.0
 flake8>=5.0.0,<7.0.0
-black==24.10.0
+black==26.3.1
 pytest>=7.0.0,<10.0.0
 pytest-cov>=4.0.0,<6.0.0
 mypy>=1.0.0,<2.0.0
