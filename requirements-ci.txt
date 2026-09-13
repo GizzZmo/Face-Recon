@@ -2,6 +2,8 @@
 # For full functionality, use requirements.txt
 #
 # Python 3.8 is not supported in CI: black>=24.10 requires Python >= 3.9.
+# Safety is omitted here because Safety 2.x conflicts with black==24.10.0
+# on the packaging dependency. CI uses pip-audit + bandit instead.
 
 # Core dependencies that install quickly
 numpy>=1.20.0,<2.0.0
@@ -15,7 +17,6 @@ black==24.10.0
 isort[colors]>=5.10.0,<6.0.0
 flake8>=5.0.0,<8.0.0
 mypy>=1.0.0,<2.0.0
-safety>=2.3.5,<3.0.0
 bandit>=1.7.0,<2.0.0
 
 # Note: face_recognition and dlib are heavy dependencies

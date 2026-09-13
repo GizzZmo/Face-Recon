@@ -45,15 +45,7 @@ jobs:
       - name: Install lint and quality tools
         run: |
           python -m pip install --upgrade pip
-          # Keep the lint job light: do not install OpenCV / face_recognition here.
-          pip install \
-            flake8 \
-            "black==24.10.0" \
-            "isort[colors]>=5.10.0,<6.0.0" \
-            "mypy>=1.0.0,<2.0.0" \
-            "safety>=2.3.5,<3" \
-            "bandit>=1.7.0,<2.0.0" \
-            numpy Flask pytest pytest-cov
+          pip install flake8 "black==24.10.0" "isort[colors]>=5.10.0,<6.0.0" "mypy>=1.0.0,<2.0.0" "bandit>=1.7.0,<2.0.0" numpy Flask pytest pytest-cov
 
       - name: Run Black code formatter
         run: black --check --diff .
@@ -75,13 +67,6 @@ jobs:
         run: |
           echo "::group::Type Checking"
           mypy . --ignore-missing-imports --python-version=${{ matrix.python-version }} || echo "Type checking completed with warnings"
-          echo "::endgroup::"
-
-      - name: Security check with safety
-        continue-on-error: true
-        run: |
-          echo "::group::Security Vulnerability Check"
-          safety check || echo "Safety check completed with findings or is unavailable"
           echo "::endgroup::"
 
       - name: Security linting with bandit
@@ -155,21 +140,21 @@ jobs:
           failures = []
           try:
               import src.config
-              print('✓ Config module imported successfully')
+              print('OK config')
           except Exception as e:
-              print(f'✗ Config import failed: {e}')
+              print(f'FAIL config: {e}')
               failures.append('config')
           try:
               import cv2
-              print('✓ OpenCV imported successfully')
+              print('OK cv2')
           except Exception as e:
-              print(f'✗ OpenCV import failed: {e}')
+              print(f'FAIL cv2: {e}')
               failures.append('cv2')
           try:
               import numpy
-              print('✓ NumPy imported successfully')
+              print('OK numpy')
           except Exception as e:
-              print(f'✗ NumPy import failed: {e}')
+              print(f'FAIL numpy: {e}')
               failures.append('numpy')
           if failures:
               sys.exit(1)
@@ -220,15 +205,12 @@ jobs:
       - name: Validate project structure
         run: |
           echo "::group::Project Structure Validation"
-          echo "Project structure:"
           find . -type f -name "*.py" | head -20
-          echo "Requirements validation:"
           pip check || echo "Some dependency conflicts exist but build can continue"
           echo "::endgroup::"
 
       - name: Create source distribution
         run: |
-          echo "::group::Creating Distribution"
           mkdir -p dist
           tar -czf dist/face-recon-source.tar.gz \
             --exclude='__pycache__' \
@@ -236,9 +218,7 @@ jobs:
             --exclude='dist' \
             --exclude='*.pyc' \
             src/ backend/ tests/ requirements.txt requirements-ci.txt README.md pyproject.toml
-          echo "Bundle created successfully"
           ls -la dist/
-          echo "::endgroup::"
 
       - name: Upload build artifacts
         uses: actions/upload-artifact@v4
@@ -266,15 +246,8 @@ jobs:
       - name: Install security tools
         run: |
           python -m pip install --upgrade pip
-          pip install "safety>=2.3.5,<3" "bandit>=1.7.0,<2.0.0" pip-audit
+          pip install "bandit>=1.7.0,<2.0.0" pip-audit
           pip install numpy Flask || echo "Optional dependencies not available for security scan"
-
-      - name: Run safety check
-        continue-on-error: true
-        run: |
-          echo "::group::Dependency Security Check"
-          safety check --full-report || true
-          echo "::endgroup::"
 
       - name: Run pip-audit
         continue-on-error: true
@@ -289,7 +262,6 @@ jobs:
           echo "::group::Code Security Analysis"
           bandit -r . -f json -o bandit-report.json -x "*/test*,*/venv/*,*/.venv/*" || true
           if [ -f bandit-report.json ]; then
-            echo "Bandit report generated"
             python -m json.tool bandit-report.json | head -100
           fi
           echo "::endgroup::"
@@ -319,53 +291,15 @@ jobs:
           name: face-recon-build
           path: dist/
 
-      - name: Set up deployment environment
-        run: |
-          echo "::group::Deployment Setup"
-          echo "Setting up deployment environment..."
-          echo "Build artifacts:"
-          ls -la dist/
-          echo "Deployment target: Production (simulation)"
-          echo "Branch: ${{ github.ref }}"
-          echo "Commit: ${{ github.sha }}"
-          echo "::endgroup::"
-
       - name: Validate deployment artifacts
         run: |
-          echo "::group::Artifact Validation"
           if [ ! -f "dist/face-recon-source.tar.gz" ]; then
-            echo "❌ Source distribution not found!"
+            echo "Source distribution not found!"
             exit 1
           fi
-          echo "✅ All deployment artifacts validated"
-          echo "::endgroup::"
-
-      - name: Deploy to production (simulation)
-        run: |
-          echo "::group::Production Deployment"
-          echo "🚀 Starting deployment to production..."
-          echo "📦 Extracting application bundle..."
-          cd dist && tar -tzf face-recon-source.tar.gz | head -10
-          echo "🔧 Would execute deployment commands..."
-          echo "   - Copy files to production server"
-          echo "   - Update configuration"
-          echo "   - Restart services"
-          echo "   - Run health checks"
-          echo "✅ Deployment completed successfully!"
-          echo "::endgroup::"
-
-      - name: Post-deployment verification
-        run: |
-          echo "::group::Post-Deployment Checks"
-          echo "🔍 Running post-deployment verification..."
-          echo "✅ Service health check: PASSED"
-          echo "✅ Endpoint availability: PASSED"
-          echo "✅ Database connectivity: PASSED"
-          echo "📊 Deployment summary:"
-          echo "   - Version: ${{ github.sha }}"
-          echo "   - Deployed at: $(date)"
-          echo "   - Status: SUCCESS"
-          echo "::endgroup::"
+          ls -la dist/
+          tar -tzf dist/face-recon-source.tar.gz | head -10
+          echo "Deployment simulation completed"
 
   notify:
     name: Notification & Reporting
@@ -376,7 +310,7 @@ jobs:
     steps:
       - name: Generate workflow summary
         run: |
-          echo "## 🔄 CI/CD Pipeline Summary" >> "$GITHUB_STEP_SUMMARY"
+          echo "## CI/CD Pipeline Summary" >> "$GITHUB_STEP_SUMMARY"
           echo "" >> "$GITHUB_STEP_SUMMARY"
           echo "| Job | Status |" >> "$GITHUB_STEP_SUMMARY"
           echo "|-----|--------|" >> "$GITHUB_STEP_SUMMARY"
@@ -386,12 +320,9 @@ jobs:
           echo "| Security | ${{ needs.security.result }} |" >> "$GITHUB_STEP_SUMMARY"
           echo "| Deploy | ${{ needs.deploy.result }} |" >> "$GITHUB_STEP_SUMMARY"
           echo "" >> "$GITHUB_STEP_SUMMARY"
-          echo "### 📋 Pipeline Details" >> "$GITHUB_STEP_SUMMARY"
-          echo "- **Commit**: ${{ github.sha }}" >> "$GITHUB_STEP_SUMMARY"
-          echo "- **Branch**: ${{ github.ref_name }}" >> "$GITHUB_STEP_SUMMARY"
-          echo "- **Trigger**: ${{ github.event_name }}" >> "$GITHUB_STEP_SUMMARY"
-          echo "- **Actor**: ${{ github.actor }}" >> "$GITHUB_STEP_SUMMARY"
-          echo "- **Workflow**: ${{ github.workflow }}" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Commit: ${{ github.sha }}" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Branch: ${{ github.ref_name }}" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Trigger: ${{ github.event_name }}" >> "$GITHUB_STEP_SUMMARY"
 
       - name: Fail if required jobs failed
         if: needs.code-quality.result != 'success' || needs.test.result != 'success' || needs.build.result != 'success' || needs.security.result != 'success'
