@@ -84,13 +84,13 @@ def test_gitignore_exists():
         assert pattern in content, f"Missing gitignore pattern: {pattern}"
 
 
-@pytest.mark.parametrize("python_version", ["3.8", "3.9", "3.10", "3.11", "3.12"])
+@pytest.mark.parametrize("python_version", ["3.9", "3.10", "3.11", "3.12"])
 def test_python_version_matrix(python_version):
     """Test that Python versions are valid for matrix testing"""
     # This test validates that the versions we're testing in CI are reasonable
     major, minor = python_version.split(".")
     assert major == "3"
-    assert 8 <= int(minor) <= 12
+    assert 9 <= int(minor) <= 12
 
 
 def test_basic_import_functionality():
