@@ -1,20 +1,22 @@
 # CI-friendly requirements - lighter dependencies for faster CI builds
 # For full functionality, use requirements.txt
+#
+# Python 3.8 is not supported in CI: black>=24.10 requires Python >= 3.9.
 
 # Core dependencies that install quickly
-numpy>=1.20.0
-Flask>=2.0.0
-opencv-python>=4.5.0
+numpy>=1.20.0,<2.0.0
+Flask>=2.0.0,<4.0.0
+opencv-python>=4.5.0,<5.0.0
 
-# Development and testing dependencies  
-pytest>=7.0.0
-pytest-cov>=4.0.0
+# Development and testing dependencies
+pytest>=7.0.0,<10.0.0
+pytest-cov>=4.0.0,<8.0.0
 black==24.10.0
-isort[colors]>=5.10.0
-flake8>=5.0.0
-mypy>=1.0.0
-safety>=2.0.0
-bandit>=1.7.0
+isort[colors]>=5.10.0,<6.0.0
+flake8>=5.0.0,<8.0.0
+mypy>=1.0.0,<2.0.0
+safety>=2.3.5,<3.0.0
+bandit>=1.7.0,<2.0.0
 
-# Note: face_recognition and dlib are heavy dependencies 
+# Note: face_recognition and dlib are heavy dependencies
 # that cause CI timeouts - install separately if needed
